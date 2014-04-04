@@ -1,0 +1,72 @@
+Ebola (2014)
+========================================================
+
+Références
+----------
+
+Notice en français de l'OMS: http://www.who.int/mediacentre/factsheets/fs103/fr/
+
+Contexte général
+----------------
+
+- frontière avec le Mali (troupes françaises)
+- frontières avec Mauritanie, Sierra Leone, Liberia
+- pays riche en minerai (minerai de fer. Le pays est également le premier exportateur mondial de bauxite, la matière première utilisée dans la production d'aluminium, et possède de riches gisements d'or. ) => expatriés.
+- un cas suspect au Nigeria, en fait dengue haemorrhagic fever transmission par moustique
+
+Date: 3 Apr 2014
+----------------
+Source: WHO Global Alert and Response (GAR), Disease Outbreak News < http://www.who.int/csr/don/2014_04_ebola/en > 
+
+L'OMS appuie les autorités nationales dans la réponse à une emergence de la maladie à virus Ebola (EVD, anciennement connu sous le nom d'Ebola fièvre hémorragique). L'épidémie est maintenant confirmé comme etant causée par une souche de virus Ebola avec très proche homologie (98 pour cent) à la Ebola Zaïre. C'est la 1ère fois que la maladie a été détectée en Afrique de l'Ouest. Des cas ont été signalés dans le 1er zones boisées sud-Guinée. L'épidémie a rapidement évolué, et plusieurs districts et Conakry ont signalé des cas et des décès causés par EVD. Un petit nombre de cas et les décès suspects ont également été signalés dans les pays voisins avec chacun d'eux ayant traversé de la Guinée.
+Les cas confirmés ont été signalés en Guinée et au Libéria. (Lire la suite
+à la source URL). 
+
+#### Filovirus
+
+La famille des filoviridae (filovirus) est composée de 3 genres:
+- Ebolarirus
+- Marburgvirus
+- Cuevavirus
+Le genre **ebolavirus** est composé de **5** espèces:
+- Bundibugyo ebolavirus (BDBV)
+- Zaire ebolavirus (EBOV)
+- Reston ebolavirus (RESTV)
+- Sudan ebolavirus (SUDV)
+- Taï Forest ebolavirus (TAFV)
+
+BDBV, EBOV, et SUDV sont fréquemment retrouvés dans des épidémies importantes.
+
+#### Source: Business Standard, Inde [modifié]
+< http://www.business-standard.com/article/news-ians/ebola-toll-rises-to-84-in-guinea-114040300723_1.html >
+
+
+Les autorités sanitaires de la Guinée jeudi [3 avril 2014] déclarent 4 nouveaux cas de maladie du virus Ebola ont été signalés dans le pays, ce qui porte le nombre total de patients à **134**, dont **84** ont succombé à la maladie virale. La maladie est surtout répandue dans le sud villes régionales de Guéckédou, Macenta, Kissidougou et la capitale Conakry, a rapporté Xinhua.
+
+Pour freiner la propagation de l'épidémie, le gouvernement a pris certaines mesures qui comprennent la création de centres d'isolement médical dans le régions touchées et la désinfection des maisons avec des cas suspects ou où les patients atteints de la maladie d'Ebola sont morts. Le gouvernement a également mobilisation entrepris des ressources nécessaires pour fournir individu matériaux de protection aux zones les plus touchées. L'UNICEF a également procédé à la distribution de kits d'hygiène pour écoles dans les zones les plus touchées par le virus. 
+
+#### Source: OMS / AFRO EPR - Foyer Nouvelles [modifié]
+< http://www.afro.who.int/en/clusters-a-programmes/dpc/epidemic-a-pandemic-alert-and-response/outbreak-news.html >
+
+
+Comme COMPTER DU 1ER AVRIL 2014, le ministère de la Santé de Guinée a rapporté une
+total cumulé de 127 cas cliniquement compatibles de EVD, dont
+35 sont confirmés en laboratoire par PCR. Le nombre total comprend 83
+décès (CRF 65 pour cent). Ces chiffres correspondent à 5 nouvelle clinique
+cas et 3 nouveaux décès depuis la dernière mise à jour le 31 mars 2014; 22
+patients restent dans l'isolement.
+
+Les chiffres actuels de cas cliniques selon le lieu de rapport sont les suivants:
+
+- Conakry (12 cas, dont 4 décès),
+- Guekedou (79 cases/57 décès),
+- Macenta (23 cases/14 décès),
+- Kissidougou (9 cas / 5 décès), et
+- Dabola et Djingaraye combinés (4 cas / 3 décès).
+
+11 des cas à Conakry ont été confirmés en laboratoire du virus Ebola
+maladie virale (EVD); 14 travailleurs de la santé ont également été laboratoire
+confirmé pour EVD, dont 8 sont morts. enquêtes sur les cas et contacts
+suivi se poursuivent, avec 375 contacts sous suivi médical à
+présente. 
+
