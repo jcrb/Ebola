@@ -1,0 +1,30 @@
+CR Réunion EBAOLA du 22 Mai 2014
+========================================================
+
+Objet: faire le point de la capacité des HUS ESR d'accueillir des patients porteurs de maladies infectieuses hautement contagieuses.
+
+Contexte: épidémie en cours de fièvre Ebola en Afrique de l'ouest et de MERS-Cov dans la péninsule arabique ac un risque d'arrivée inopinée d'un patient porteur de la maladie:
+- Valenciennes (Début 2014) un patient de retour du Quatar et hospitalisé pour fièvre avec altératiion de l'état général dans un service conventionnel est diagnostiqué positif au MERS-Cov au 5ème jour. Il contamine son voisin de chambre qui décède de lamaladie.
+- Strasbourg, un patient en rovenance de Conacry présente ne symptomatologie compatible avec une fièvre Ebola (température, signes digestif, origine géographique). Le cas sera infirmé par l'INVS mais révèle la difficulté d'avoir une approche cohérente entre les HUS, l'InVS et l'ARS et d'autre part révèle l'impossibilité de procéder à des examens biologiques et infectieux élémentaires.
+- enfin plusieurs établisements nous ont interrogé pour savoir comment le cas échéant transférer ce type de patients et comment se faisait la décontamination des équipes de transport et de leur matériel.
+
+Procédures existantes:
+- réception appel pour fièvre au centre15: en cours
+- prise en charge d'un cas suspect par le SMUR de Strasbourg: Ok
+- circuit d'alerte SAMU-SU-Maladies Infectieuses: Ok
+- procédure d'admission au service des maladies infectieuses par le SMUR (circuit assis et couché): Ok
+- procédure de décontamination du personnel et du matériel: Ok
+- procédure de décontamination pour tout moyen de transport:Ok
+- procédure d'informarion des consultants: en cours
+- constitution d'un chariot d'urgence infectieuse pour SU et service de maladies infectieuses: en cours
+- traçabilité des personnel et patients contacts: Ok
+- conseils aux contacts ?
+
+Risque infectieux et chirurgie
+
+Risque infectieux et laboratoires
+
+- décontaminatin des tubes
+- envoi au labo de référence par les SU et MI: Ok
+- réalisation des examens biologiques standard: aucun labo ,'est équipé pour faire de la biologie 'sèche'. La seule solution actuellement est d'attendre la levée de doute par l'INVS.
+- Traçabilité des techniciens contact (Ok)
