@@ -15,3 +15,10 @@ Maladie à déclaration obligatoire [fièvre hémorragique africaine](https://ww
 
 Avis du [HCSP](http://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=414)
 
+Signalement SAMU 67
+
+Signalement ARS Alsace: tel, fax, mail (ars.alerte)
+
+Identification des contacts: CIRE
+
+Pas contagieux tant que pas de sympômes. Premier symptôme = fièvre.
