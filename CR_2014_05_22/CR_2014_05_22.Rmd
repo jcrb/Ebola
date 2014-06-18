@@ -21,6 +21,8 @@ Sénarios
 4. le patient a passé le filtre des urgences et se trouve dans un service de soins (cas de Valenciennes)
 
 Procédures existantes:
+----------------------
+
 - réception appel pour fièvre au centre15: en cours
 - prise en charge d'un cas suspect par le SMUR de Strasbourg: Ok
 - circuit d'alerte SAMU-SU-Maladies Infectieuses: Ok
@@ -31,12 +33,25 @@ Procédures existantes:
 - constitution d'un chariot d'urgence infectieuse pour SU et service de maladies infectieuses: en cours
 - traçabilité des personnel et patients contacts: Ok
 - conseils aux contacts ?
+- circuit de l'information entre le SU, l'INVS et ARS: en cours
 
 Risque infectieux et chirurgie
+------------------------------
+
+La question a été évoquée du risque particulier auquel s'exposeraient des équipes chirurgicales intervenant dans ce contexte.
+
+Quelle information pour les contacts ?
+--------------------------------------
+
+- une personne sans signes infectieux n'est pas contagieuse
+- le premier signe qui apparait est une augentation de la température. La surveillance de la température est le principal élément de surveillance pendant les 21 jours qi suivent un contact suppusé ou avéré avec un cas suspect ou confirmé.
 
 Risque infectieux et laboratoires
+----------------------------------
 
 - décontaminatin des tubes
 - envoi au labo de référence par les SU et MI: Ok
 - réalisation des examens biologiques standard: aucun labo ,'est équipé pour faire de la biologie 'sèche'. La seule solution actuellement est d'attendre la levée de doute par l'INVS.
 - Traçabilité des techniciens contact (Ok)
+- alternative: travail en enceinte close pour une biologie minimale
+- Les appareils de biologie délocalisée semblent présenter un risque plus élevé que les automatates utilisés dans les laboratoires.
