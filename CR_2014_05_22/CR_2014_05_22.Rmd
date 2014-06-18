@@ -7,6 +7,18 @@ Contexte: épidémie en cours de fièvre Ebola en Afrique de l'ouest et de MERS-
 - Valenciennes (Début 2014) un patient de retour du Quatar et hospitalisé pour fièvre avec altératiion de l'état général dans un service conventionnel est diagnostiqué positif au MERS-Cov au 5ème jour. Il contamine son voisin de chambre qui décède de lamaladie.
 - Strasbourg, un patient en rovenance de Conacry présente ne symptomatologie compatible avec une fièvre Ebola (température, signes digestif, origine géographique). Le cas sera infirmé par l'INVS mais révèle la difficulté d'avoir une approche cohérente entre les HUS, l'InVS et l'ARS et d'autre part révèle l'impossibilité de procéder à des examens biologiques et infectieux élémentaires.
 - enfin plusieurs établisements nous ont interrogé pour savoir comment le cas échéant transférer ce type de patients et comment se faisait la décontamination des équipes de transport et de leur matériel.
+- Le CHU est classé comme établissement de référence pour les risques NRBCE avec le CHU de Nancy et à ce titre il a un rôle de recours et de conseil pour les autres établissements de santé de la zone (L’arrêté du 30 décembre 2005 relatif à la liste des établissements de santé de référence, désigne pour chaque zone de défense un ou plusieurs établissements de santé de référence pour les situations sanitaires exceptionnelles mentionnées à l’article L. 3110-9.)
+
+Sénarios
+--------
+
+1. Patient d'emblée reconnu comme cas suspect ou avéré, pris en charge par une équipe du SMUR et acheminé via un circuit spécifique au SMI.
+
+2. patient qui se présenta au SU et identifié comme cas suspect avant d'être admis au SU dans un secteur d'isolement. Repose sur l'autodéclaration du patient et la vigilance du personnel d'accueil.
+
+3. patient suspect qui a passé le filtre de l'accueil et qui en courd d'examen dans le SU. Procédure d'isolement et d'identification des contacts parmI le personnel. Information des laboratoires si des prélèvements ont déjà été effectués.
+
+4. le patient a passé le filtre des urgences et se trouve dans un service de soins (cas de Valenciennes)
 
 Procédures existantes:
 - réception appel pour fièvre au centre15: en cours
