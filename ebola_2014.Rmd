@@ -4,7 +4,10 @@ Ebola (2014)
 Références
 ----------
 
-Notice en français de l'OMS: http://www.who.int/mediacentre/factsheets/fs103/fr/
+- Notice en français de l'OMS: http://www.who.int/mediacentre/factsheets/fs103/fr/
+- suivi épidémie par l'[OMS](http://who.int/csr/don/archive/disease/ebola/en/)
+- Page du [Ministere de la santé Sierra Leone](http://www.mohsw.gov.lr/documents/Liberia%20EVD%20epidemic%20sitrep-%20on%2039-%2022-06-14.pdf%20docx.pdf)
+
 
 Contexte général
 ----------------
