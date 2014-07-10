@@ -1,0 +1,55 @@
+---
+title: "EVB par pays"
+author: "JcB"
+date: "10/07/2014"
+output: html_document
+---
+
+```{r init}
+library(knitr)
+library(xts)
+
+file <- "EVB_pays.csv"
+d <- read.csv(file, header = TRUE)
+d$Date <- as.Date(d$Date)
+names(d)
+str(d)
+```
+
+```{r calculs}
+sum(d$Total[d$Date == max(d$Date)])
+sum(d$Death[d$Date == max(d$Date)])
+dcd <- sum(d$Death[d$Date == max(d$Date)])
+cas <- sum(d$Total[d$Date == max(d$Date)])
+cfr <- round(dcd * 100 / cas, 2)
+cas.g <- d$Total[d$Pays == "Guinea" & d$Date == max(d$Date)]
+dcd.g <- d$Death[d$Pays == "Guinea" & d$Date == max(d$Date)]
+cfr.g <- round(dcd.g * 100 / cas.g, 2)
+cas.sl <- d$Total[d$Pays == "Sierra Leone" & d$Date == max(d$Date)]
+dcd.sl <- d$Death[d$Pays == "Sierra Leone" & d$Date == max(d$Date)]
+cfr.sl <- round(dcd.sl * 100 / cas.sl, 2)
+cas.lb <- d$Total[d$Pays == "Liberia" & d$Date == max(d$Date)]
+dcd.lb <- d$Death[d$Pays == "Liberia" & d$Date == max(d$Date)]
+cfr.lb <- round(dcd.lb * 100 / cas.lb, 2)
+
+a <- cbind(cas, cas.g, cas.sl, cas.lb)
+b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb)
+t <- rbind(a,b)
+colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria")
+rownames(t) <- c("cas", "Décès")
+kable(t)
+
+x <- xts(d, order.by = d$Date)
+plot(x$Total[x$Pays == "Guinea"])
+barplot(x$Total[x$Pays == "Guinea"])
+
+plot(x$Total[x$Pays == "Guinea"], ylim=c(0,450))
+lines(x$Total[x$Pays == "Liberia"], ylim=c(0,450))
+lines(x$Total[x$Pays == "Sierra Leone"], ylim=c(0,450))
+
+
+tapply(d$Total, d$Date, sum)
+tapply(d$Death, d$Date, sum)
+
+```
+
