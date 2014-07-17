@@ -5,6 +5,13 @@ date: "10/07/2014"
 output: html_document
 ---
 
+Suivi de l'épidémie de fièvre EBOLA en 2014
+===========================================
+
+source: [promed mail](http://www.promedmail.org) et [OMS](http://who.int/csr/don/2014_07_15_ebola/en/)
+
+Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées au format .csv dans __EVB_pays.csv__.
+
 ```{r init}
 library(knitr)
 library(xts)
@@ -43,13 +50,18 @@ x <- xts(d, order.by = d$Date)
 plot(x$Total[x$Pays == "Guinea"])
 barplot(x$Total[x$Pays == "Guinea"])
 
-plot(x$Total[x$Pays == "Guinea"], ylim=c(0,450))
-lines(x$Total[x$Pays == "Liberia"], ylim=c(0,450))
-lines(x$Total[x$Pays == "Sierra Leone"], ylim=c(0,450))
-
+plot(x$Total[x$Pays == "Guinea"], ylim=c(0,450), type = "line", main = "Nombre cumulé de cas d'Ebola", ylab="nombre de cas")
+lines(x$Total[x$Pays == "Guinea"], ylim=c(0,450), col="red")
+lines(x$Total[x$Pays == "Liberia"], ylim=c(0,450), col="blue")
+lines(x$Total[x$Pays == "Sierra Leone"], ylim=c(0,450), col="green")
+legend("topleft", legend = c("Guinée","Libéria","Sierra Leone"), col=c("red","blue","green"), lty=1, lwd=2)
 
 tapply(d$Total, d$Date, sum)
 tapply(d$Death, d$Date, sum)
 
 ```
+Dernier bilan: `r max(d$Date)`  
+Nombre cumulé de cas: $`r cas`$  
+Nombre cumulé de décès: $`r dcd`$  
+Mortalité: $`r cfr`$ % 
 
