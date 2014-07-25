@@ -10,6 +10,10 @@ Suivi de l'épidémie de fièvre EBOLA en 2014
 
 source: [promed mail](http://www.promedmail.org) et [OMS](http://who.int/csr/don/2014_07_15_ebola/en/)
 
+[OMS en français](http://who.int/csr/don/archive/disease/ebola/fr/)
+
+[OMS en anglais](http://who.int/csr/don/archive/disease/ebola/en/)
+
 Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées au format .csv dans __EVB_pays.csv__.
 
 ```{r init}
