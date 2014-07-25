@@ -74,21 +74,22 @@ New Cases et Courbe épidémique
 
 ```{r newcase}
 library(epitools)
-file <- "newcases.csv"
-n <- read.csv(file, header = TRUE)
-n$date <- as.Date(n$date)
+file2 <- "newcases.csv"
+n2 <- read.csv(file2, header = TRUE)
+n2$date <- as.Date(n2$date)
 # On crée autant d'enregistrements qu'il y a de cas
-x.date <- rep(n$date, n$new.case)
-x.pays <- rep(n$pays, n$new.case)
+x.date <- rep(n2$date, n2$new.case)
+x.pays <- rep(n2$pays, n2$new.case)
 new.case <- data.frame(x.date, x.pays)
 
 epicurve.weeks(x.date, sunday = FALSE, main="Ebola - Nouveaux cas")
 
 col3seq.d <- c("#43A2CA", "#A8DDB5", "#E0F3DB")
-ebola <- epicurve.weeks(new.case$x.date, sunday = FALSE, strata = new.case$x.pays, col = col3seq.d, legend=TRUE, axisnames = FALSE)
+ebola <- epicurve.weeks(new.case$x.date, sunday = FALSE, strata = new.case$x.pays, col = col3seq.d, axisnames = FALSE, sub="D'après les données de l'OMS")
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 axis(1, at = ebola$xvals, labels = ebola$cmonth, tick = FALSE, line = 1)
 title(main="Ebola - Nouveaux cas", ylab = "fréquence", xlab = "2014 - semaines")
+legend("topleft", legend=c("Guinée", "Libéria", "Sierra Leone"), col=col3seq.d, fill=col3seq.d, bty="n")
 ```
-legend("topleft", legend=c("Sierra Leone", "Libéria","Guinée"), col=col3seq.d, lty=2)
+
 
