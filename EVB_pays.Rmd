@@ -71,7 +71,10 @@ tapply(d$Death, d$Date, sum)
 Dernier bilan: `r max(d$Date)`  
 Nombre cumulé de cas: $`r cas`$  
 Nombre cumulé de décès: $`r dcd`$  
-Mortalité: $`r cfr`$ % 
+Mortalité globale: $`r cfr`$ %   
+- mortalité en Guinée: $`r cfr.g`$ %  
+- mortalité au Libéria: $`r cfr.lb`$ %  
+- mortalité en Sierra Leone: $`r cfr.sl`$ %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -96,4 +99,36 @@ title(main="Ebola - Nouveaux cas", ylab = "fréquence", xlab = "2014 - semaines"
 legend("topleft", legend=c("Guinée", "Libéria", "Sierra Leone"), col=col3seq.d, fill=col3seq.d, bty="n")
 ```
 
+Nouveaux cas par pays
+---------------------
+```{r newcase_pays}
+new.case.g <- new.case[new.case$x.pays=="GUINEE",]
+new.case.l <- new.case[new.case$x.pays=="LIBERIA",]
+new.case.sl <- new.case[new.case$x.pays=="SIERRA-LEONE",]
 
+ebola.g <- epicurve.weeks(new.case.g$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#43A2CA", main="Guinée Conacry - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+
+ebola.l <- epicurve.weeks(new.case.l$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#A8DDB5", main="Libéria - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+
+ebola.sl <- epicurve.weeks(new.case.sl$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#E0F3DB", main="Sierra Leone - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+
+# grouppés
+
+opar <- par(no.readonly=TRUE)
+par(mfrow=c(3,1))
+
+ebola.g <- epicurve.weeks(new.case.g$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#43A2CA", main="Guinée Conacry - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+
+ebola.l <- epicurve.weeks(new.case.l$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#A8DDB5", main="Libéria - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+
+ebola.sl <- epicurve.weeks(new.case.sl$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#E0F3DB", main="Sierra Leone - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+
+par(opar)
+```
+ToDo: cartographie
