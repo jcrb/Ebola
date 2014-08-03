@@ -1,0 +1,49 @@
+Réunion Ebola
+==============
+
+Date: 5 mai 2014 (2014-05-05)
+
+Présent: PIERRAT Gillles, SCHWEITZER Catherine, BILBAULT Pascal, LAVIGNE Thierry, HEITZ Céline, PRANGE Daniel, WALTER Christiane, BARTIER Jean-Claude, CHRISTIAN Véronique, CHRISTMANN Daniel.
+
+Rédacteur JCB
+
+Objet: organiser l'accueil d'un malade porteur d'une maladie infectieuse grave, hautement contagieuse aux HUS, avérée ou suspectée
+
+4 situations sont identifiées:
+- Admission régulée via le SAMU-Centre 15
+- Admission réglée d'un patient en provenance d'un autre établissement
+- Arrivée spontanée
+- Découverte en cours d'examen aux urgences ou en consultation externe
+
+- Admission régulée via le SAMU-Centre 15
+    - entrée 133 si ambulant
+    - prévenir le SU + Mal inf.
+    - Trajet direct sans passer par SU
+    - si couché passer à droite du déchoc, ascenceur pour le 4ème ou réa (1er)
+    - délai pour préparer la chambre à pression neg 10 mn
+    - 2 personnes exposées: med + IDE, le conducteur reste propre
+    - retour au pôle log pour déconta ?
+    - déchets DASRI
+    
+- Autre SAMU
+    - idem + déconta PL. TODO préparer matériel de déconta + CAT
+    
+- Spontané
+    - prévoir affichage + cellule com
+    - se présenter à IOA
+    - masque
+    - évaluation rapide
+    - cotact avec astreinte mal infectieuse (TDO liste des astreinte)
+    - protection des intervenants (cf chariot)
+    - transfert infectiologie
+    
+  - En cours d'examen
+    - idem + traçabilité des contacts (patients + personnel)
+    
+  - CAT pour les contacts
+    - surveillance de la température pendant ?
+    
+ - constitution chariot (Véronique Christian)
+ 
+ - TODO
+    - biologie standard ?
