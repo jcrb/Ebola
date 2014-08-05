@@ -15,6 +15,10 @@ Maladie à déclaration obligatoire [fièvre hémorragique africaine](https://ww
 
 Avis du [HCSP](http://www.hcsp.fr/explore.cgi/avisrapportsdomaine?clefr=414)
 
+Poster [CDC](http://www.cdc.gov/HAI/pdfs/ppe/ppeposter1322.pdf)
+
+Recommandations [belge](http://www.health.belgium.be/internet2Prd/groups/public/@public/@shc/documents/ie2divers/19097511_fr.pdf)
+
 Signalement SAMU 67
 
 Signalement ARS Alsace: tel, fax, mail (ars.alerte)
