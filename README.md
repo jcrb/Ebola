@@ -19,6 +19,8 @@ Poster [CDC](http://www.cdc.gov/HAI/pdfs/ppe/ppeposter1322.pdf)
 
 Recommandations [belge](http://www.health.belgium.be/internet2Prd/groups/public/@public/@shc/documents/ie2divers/19097511_fr.pdf)
 
+Recommandation [CDC](http://emergency.cdc.gov/han/han00364.asp)
+
 Signalement SAMU 67
 
 Signalement ARS Alsace: tel, fax, mail (ars.alerte)
