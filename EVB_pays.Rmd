@@ -20,39 +20,72 @@ Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées a
 library(knitr)
 library(xts)
 
-file <- "EVB_pays.csv"
+#file <- "EVB_pays.csv"
+file <- "EBOLA 2014 - Pays.csv" # fichier issu de drive
 d <- read.csv(file, header = TRUE)
 d$Date <- as.Date(d$Date)
 names(d)
 str(d)
 ```
+Sommes par pays
+---------------
 
+- __dcd__ nombre total de décès
+- __cas__ nombre total de cas
+- __cfr__ mortalité globale (en %)
+- __cas.g__ total des cas en Guinée
+- __dcd.g__ total des décès en Guinée
+- __cfr.g__ mortalité en Guinée
+- __cas.sl__
+- __dcd.sl__
+- __ cfr.sl__
+- __cas.lb__
+- __dcd.lb__
+- __cfr.lb__
 ```{r calculs, echo=FALSE}
 sum(d$Total[d$Date == max(d$Date)])
 sum(d$Death[d$Date == max(d$Date)])
+
 dcd <- sum(d$Death[d$Date == max(d$Date)])
 cas <- sum(d$Total[d$Date == max(d$Date)])
 cfr <- round(dcd * 100 / cas, 2)
+
 cas.g <- d$Total[d$Pays == "Guinea" & d$Date == max(d$Date)]
 dcd.g <- d$Death[d$Pays == "Guinea" & d$Date == max(d$Date)]
 cfr.g <- round(dcd.g * 100 / cas.g, 2)
+
 cas.sl <- d$Total[d$Pays == "Sierra Leone" & d$Date == max(d$Date)]
 dcd.sl <- d$Death[d$Pays == "Sierra Leone" & d$Date == max(d$Date)]
 cfr.sl <- round(dcd.sl * 100 / cas.sl, 2)
+
 cas.lb <- d$Total[d$Pays == "Liberia" & d$Date == max(d$Date)]
 dcd.lb <- d$Death[d$Pays == "Liberia" & d$Date == max(d$Date)]
 cfr.lb <- round(dcd.lb * 100 / cas.lb, 2)
 
-a <- cbind(cas, cas.g, cas.sl, cas.lb)
-b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb)
+cas.ng <- d$Total[d$Pays == "Nigéria" & d$Date == max(d$Date)]
+dcd.ng <- d$Death[d$Pays == "Nigéria" & d$Date == max(d$Date)]
+cfr.ng <- round(dcd.ng * 100 / cas.ng, 2)
+
+a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng)
+b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.lb)
 t <- rbind(a,b)
-colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria")
+colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria")
 rownames(t) <- c("cas", "Décès")
 kable(t)
 
+# nombre total de cas cumulatif
+tot <- tapply(d$Total, d$Date, sum)
+date <- unique(d$Date)
+a <- data.frame(date,tot)
+plot(a, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="b")
+
+b <- xts(a, order.by = date)
+plot(b$tot, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="l")
+
+# uniquement en Guinée
 x <- xts(d, order.by = d$Date)
-plot(x$Total[x$Pays == "Guinea"])
-barplot(x$Total[x$Pays == "Guinea"])
+plot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
+barplot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
 
 # major.format permet de définir la syntaxe des dates pour l'axe des X [source](https://stat.ethz.ch/pipermail/r-help/2011-July/285360.html)
 m <- par("mar")
@@ -81,7 +114,8 @@ New Cases et Courbe épidémique
 
 ```{r newcase, echo=FALSE}
 library(epitools)
-file2 <- "newcases.csv"
+# file2 <- "newcases.csv"
+file2 <- "EBOLA 2014 - newcases.csv" # fichier issu du drive
 n2 <- read.csv(file2, header = TRUE)
 n2$date <- as.Date(n2$date)
 summary(n2$pays)

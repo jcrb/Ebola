@@ -21,6 +21,8 @@ Recommandations [belge](http://www.health.belgium.be/internet2Prd/groups/public/
 
 Recommandation [CDC](http://emergency.cdc.gov/han/han00364.asp)
 
+Calculatrice pour le [chlore](http://www.aly-abbara.com/utilitaires/calcul%20imc/calculatrice_degre_chlorometrique.html)
+
 Signalement SAMU 67
 
 Signalement ARS Alsace: tel, fax, mail (ars.alerte)
