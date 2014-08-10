@@ -88,3 +88,13 @@ virus est sensible à l'hypochlorite de sodium (eau de javel, Dakin) et les dés
 Virus Ebola sont hautement transmissible par contact direct avec le sang infecté, les sécrétions, les tissus, les organes ou des liquides biologiques des personnes infectées morts ou vivants.
 La transmission par des vecteurs passifs qui ont été contaminés par des liquides corporels est possible [5].
 La transmission aérienne n'a pas été documentée. Les aérosols produits par la toux ou générés par les activités de soins (intubation, aspiration trachéale, ventilation non invasive...) sont potentiellement contaminants.
+
+Géographie
+=========
+
+Le Libéria est divisé en 15 comtés eux même divisés en [districts](http://fr.wikipedia.org/wiki/Districts_du_Liberia), voir [carte](http://fr.wikipedia.org/wiki/Districts_du_Liberia#mediaviewer/Fichier:Disctricts_Lib%C3%A9ria_map.svg)
+
+La Sierra Leone est divisée en 4 [régions](http://fr.wikipedia.org/wiki/Subdivisions_de_Sierra_Leone) et [aussi](http://fr.wikipedia.org/wiki/Sierra_Leone)
+
+La Guinée [pays](http://fr.wikipedia.org/wiki/Guin%C3%A9e) comporte 8 régions et 33 [préfectures](http://fr.wikipedia.org/wiki/Subdivision_de_la_Guin%C3%A9e)
+

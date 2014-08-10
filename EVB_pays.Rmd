@@ -21,6 +21,7 @@ Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées a
 ```{r init, echo=FALSE, comment=""}
 library(knitr)
 library(xts)
+source("~/Documents/Resural/Stat Resural/RPU_2013/Routines/mes_fonctions.R")
 
 #file <- "EVB_pays.csv"
 file <- "EBOLA 2014 - Pays.csv" # fichier issu de drive
@@ -75,28 +76,36 @@ colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria")
 rownames(t) <- c("cas", "Décès")
 kable(t)
 
-# nombre total de cas cumulatif
+# nombre total de cas cumulatif (par pays)
+max.pays <- tapply(d$Total, d$Pays, max)
+max.pays
+
+# nombre total de cas cumulatif (par date)
 tot <- tapply(d$Total, d$Date, sum)
 date <- unique(d$Date)
 a <- data.frame(date,tot)
 plot(a, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="b")
+copyright(an=2014)
 
 b <- xts(a, order.by = date)
 plot(b$tot, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="l")
+copyright(an=2014)
 
 # uniquement en Guinée
 x <- xts(d, order.by = d$Date)
 plot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
 barplot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
+copyright(an=2014)
 
 # major.format permet de définir la syntaxe des dates pour l'axe des X [source](https://stat.ethz.ch/pipermail/r-help/2011-July/285360.html)
 m <- par("mar")
 par(mar = c(6.1, 4.1, 4.1, 2.1))
-plot(x$Total[x$Pays == "Guinea"], ylim=c(0,450), type = "bars", main = "Nombre cumulé de cas d'Ebola", ylab="nombre de cas", las = 2, cex.axis = 0.7, major.format="%d/%m/%Y")
+plot(x$Total[x$Pays == "Guinea"], ylim=c(0,max(max.pays)), type = "bars", main = "Nombre cumulé de cas d'Ebola", ylab="nombre de cas", las = 2, cex.axis = 0.7, major.format="%d/%m/%Y")
 lines(x$Total[x$Pays == "Guinea"], ylim=c(0,450), col="red")
 lines(x$Total[x$Pays == "Liberia"], ylim=c(0,450), col="blue")
 lines(x$Total[x$Pays == "Sierra Leone"], ylim=c(0,450), col="green")
 legend("topleft", legend = c("Guinée","Libéria","Sierra Leone"), col=c("red","blue","green"), lty=1, lwd=2)
+copyright(an=2014)
 par(mar=m)
 
 tapply(d$Total, d$Date, sum)
@@ -128,6 +137,7 @@ x.pays <- rep(n2$pays, n2$new.case)
 new.case <- data.frame(x.date, x.pays)
 
 epicurve.weeks(x.date, sunday = FALSE, main="Ebola - Nouveaux cas")
+copyright(an=2014)
 
 col3seq.d <- c("#43A2CA", "#A8DDB5", "red", "#E0F3DB")
 ebola <- epicurve.weeks(new.case$x.date, sunday = FALSE, strata = new.case$x.pays, col = col3seq.d, axisnames = FALSE, sub="D'après les données de l'OMS")
@@ -135,6 +145,7 @@ axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 axis(1, at = ebola$xvals, labels = ebola$cmonth, tick = FALSE, line = 1)
 title(main="Ebola - Nouveaux cas", ylab = "fréquence", xlab = "2014 - semaines")
 legend("topleft", legend=c("Guinée", "Libéria", "Nigéria", "Sierra Leone"), col=col3seq.d, fill=col3seq.d, bty="n")
+copyright(an=2014)
 ```
 
 Nouveaux cas par pays
@@ -147,17 +158,20 @@ new.case.na <- new.case[new.case$x.pays=="NIGERIA",]
 
 ebola.g <- epicurve.weeks(new.case.g$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#43A2CA", main="Guinée Conacry - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+copyright(an=2014)
 
 ebola.l <- epicurve.weeks(new.case.l$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#A8DDB5", main="Libéria - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+copyright(an=2014)
 
 ebola.sl <- epicurve.weeks(new.case.sl$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#E0F3DB", main="Sierra Leone - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+copyright(an=2014)
 
 # grouppés
 
 opar <- par(no.readonly=TRUE)
-par(mfrow=c(3,1))
+par(mfrow=c(4,1))
 
 ebola.g <- epicurve.weeks(new.case.g$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#43A2CA", main="Guinée Conacry - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
@@ -168,9 +182,13 @@ axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 ebola.sl <- epicurve.weeks(new.case.sl$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#E0F3DB", main="Sierra Leone - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 
+copyright(an=2014, line = 0.5)
+
 ebola.na <- epicurve.weeks(new.case.na$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="red", main="Nigéria - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 
 par(opar)
+# copyright(an=2014)
 ```
+
 ToDo: cartographie
