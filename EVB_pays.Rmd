@@ -85,17 +85,17 @@ tot <- tapply(d$Total, d$Date, sum)
 date <- unique(d$Date)
 a <- data.frame(date,tot)
 plot(a, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="b")
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 b <- xts(a, order.by = date)
 plot(b$tot, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="l")
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 # uniquement en Guinée
 x <- xts(d, order.by = d$Date)
 plot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
 barplot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 # major.format permet de définir la syntaxe des dates pour l'axe des X [source](https://stat.ethz.ch/pipermail/r-help/2011-July/285360.html)
 m <- par("mar")
@@ -105,7 +105,7 @@ lines(x$Total[x$Pays == "Guinea"], ylim=c(0,450), col="red")
 lines(x$Total[x$Pays == "Liberia"], ylim=c(0,450), col="blue")
 lines(x$Total[x$Pays == "Sierra Leone"], ylim=c(0,450), col="green")
 legend("topleft", legend = c("Guinée","Libéria","Sierra Leone"), col=c("red","blue","green"), lty=1, lwd=2)
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 par(mar=m)
 
 tapply(d$Total, d$Date, sum)
@@ -137,7 +137,7 @@ x.pays <- rep(n2$pays, n2$new.case)
 new.case <- data.frame(x.date, x.pays)
 
 epicurve.weeks(x.date, sunday = FALSE, main="Ebola - Nouveaux cas")
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 col3seq.d <- c("#43A2CA", "#A8DDB5", "red", "#E0F3DB")
 ebola <- epicurve.weeks(new.case$x.date, sunday = FALSE, strata = new.case$x.pays, col = col3seq.d, axisnames = FALSE, sub="D'après les données de l'OMS")
@@ -145,7 +145,7 @@ axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 axis(1, at = ebola$xvals, labels = ebola$cmonth, tick = FALSE, line = 1)
 title(main="Ebola - Nouveaux cas", ylab = "fréquence", xlab = "2014 - semaines")
 legend("topleft", legend=c("Guinée", "Libéria", "Nigéria", "Sierra Leone"), col=col3seq.d, fill=col3seq.d, bty="n")
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 ```
 
 Nouveaux cas par pays
@@ -158,20 +158,20 @@ new.case.na <- new.case[new.case$x.pays=="NIGERIA",]
 
 ebola.g <- epicurve.weeks(new.case.g$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#43A2CA", main="Guinée Conacry - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 ebola.l <- epicurve.weeks(new.case.l$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#A8DDB5", main="Libéria - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 ebola.sl <- epicurve.weeks(new.case.sl$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#E0F3DB", main="Sierra Leone - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
-copyright(an=2014)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 # grouppés
 
 opar <- par(no.readonly=TRUE)
-par(mfrow=c(4,1))
+par(mfrow=c(3,1))
 
 ebola.g <- epicurve.weeks(new.case.g$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#43A2CA", main="Guinée Conacry - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
@@ -188,7 +188,7 @@ ebola.na <- epicurve.weeks(new.case.na$x.date, sunday = FALSE, axisnames = FALSE
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 
 par(opar)
-# copyright(an=2014)
+# copyright(an=2014, titre="HUS-Cellule NRBCE")
 ```
 
 ToDo: cartographie
