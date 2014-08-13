@@ -14,6 +14,10 @@ source: [promed mail](http://www.promedmail.org) et [OMS](http://who.int/csr/don
 
 [OMS en anglais](http://who.int/csr/don/archive/disease/ebola/en/)
 
+[CDC](http://www.cdc.gov/vhf/ebola/)
+
+[healthmap](http://www.healthmap.org/fr/)
+
 Le 7/8/2014 les donnée sont saisies dans un document partagé sur drive (Ebola). Le fichier _EBOLA 2014 - Pays.csv_ remplace le fichier _EVB_pays.csv_. Idem pour newcases.csv. Dans le document RPU_xml on trouvera une méthode pour importer le tableau de l'OMS via R.
 
 Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées au format .csv dans __EVB_pays.csv__.
