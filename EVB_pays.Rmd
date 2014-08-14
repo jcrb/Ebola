@@ -43,12 +43,18 @@ Sommes par pays
 - __cas.g__ total des cas en Guinée
 - __dcd.g__ total des décès en Guinée
 - __cfr.g__ mortalité en Guinée
-- __cas.sl__
-- __dcd.sl__
-- __ cfr.sl__
-- __cas.lb__
-- __dcd.lb__
-- __cfr.lb__
+- __cas.sl__ nombre total de cas en Sierra Leone
+- __dcd.sl__ total des décès en Sierra L
+- __ cfr.sl__mortalité  en SL
+- __cas.lb__ nombre total de cas au Libéria
+- __dcd.lb__ total des décès au Libéria
+- __cfr.lb__mortalité au Libéria
+- __dcd.ng__ total des décès au Nigéria
+- __cas.ng__ total des cas au Nigéria
+- __cfr.ng__ mortalité au Nigéria
+
+NB: les cas représentent la somme des cas suspects, probables et confirmés.
+
 ```{r calculs, echo=FALSE}
 sum(d$Total[d$Date == max(d$Date)])
 sum(d$Death[d$Date == max(d$Date)])
@@ -74,7 +80,7 @@ dcd.ng <- d$Death[d$Pays == "Nigéria" & d$Date == max(d$Date)]
 cfr.ng <- round(dcd.ng * 100 / cas.ng, 2)
 
 a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng)
-b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.lb)
+b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng)
 t <- rbind(a,b)
 colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria")
 rownames(t) <- c("cas", "Décès")
@@ -86,13 +92,18 @@ max.pays
 
 # nombre total de cas cumulatif (par date)
 tot <- tapply(d$Total, d$Date, sum)
+tot.dcd <- tapply(d$Death, d$Date, sum)
 date <- unique(d$Date)
-a <- data.frame(date,tot)
-plot(a, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="b")
+a <- data.frame(date,tot, tot.dcd)
+
+plot(a$date, a$tot, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="b")
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 b <- xts(a, order.by = date)
 plot(b$tot, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="l")
+lines(b$tot.dcd, col="red")
+legend("topleft", legend=c("Cas","Décès"), col=c("black", "red"), lty=1)
+
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 # uniquement en Guinée
