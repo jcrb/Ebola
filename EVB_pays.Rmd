@@ -35,6 +35,9 @@ d <- read.csv(file, header = TRUE)
 d$Date <- as.Date(d$Date)
 names(d)
 str(d)
+
+d <- d[d$Pays != "Congo",]
+d$Pays <- factor(d$Pays)
 ```
 Sommes par pays
 ---------------
@@ -80,6 +83,10 @@ cfr.lb <- round(dcd.lb * 100 / cas.lb, 2)
 cas.ng <- d$Total[d$Pays == "Nigéria" & d$Date == max(d$Date)]
 dcd.ng <- d$Death[d$Pays == "Nigéria" & d$Date == max(d$Date)]
 cfr.ng <- round(dcd.ng * 100 / cas.ng, 2)
+
+cas.cg <- d$Total[d$Pays == "Congo" & d$Date == max(d$Date)]
+dcd.cg <- d$Death[d$Pays == "Congo" & d$Date == max(d$Date)]
+cfr.cg <- round(dcd.cg * 100 / cas.ng, 2)
 
 a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng)
 b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng)
@@ -147,6 +154,8 @@ file2 <- "EBOLA 2014 - newcases.csv" # fichier issu du drive
 n2 <- read.csv(file2, header = TRUE)
 n2$date <- as.Date(n2$date)
 summary(n2$pays)
+# on ne tient pas compte du Congo
+n2 <- n2[n2$pays != "CONGO",]
 
 # On crée autant d'enregistrements qu'il y a de cas
 x.date <- rep(n2$date, n2$new.case)

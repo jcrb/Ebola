@@ -37,10 +37,10 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	76 obs. of  12 variables:
+'data.frame':	83 obs. of  12 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
- $ Pays         : Factor w/ 4 levels "Guinea","Liberia",..: 1 1 1 2 1 2 1 4 2 1 ...
+ $ Pays         : Factor w/ 5 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 5 3 2 ...
  $ Localisation : logi  NA NA NA NA NA NA ...
  $ Total        : int  86 90 112 2 122 8 390 136 41 413 ...
  $ Confirmed    : int  NA NA NA NA 24 2 258 103 24 293 ...
@@ -74,11 +74,11 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 2615
+## [1] 3069
 ```
 
 ```
-## [1] 1427
+## [1] 1552
 ```
 
 ```
@@ -86,13 +86,13 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 
 ## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria|
 ## |:-----|-----:|------:|------------:|-------:|-------:|
-## |cas   |  2615|    607|          910|    1082|      16|
-## |Décès |  1427|    406|          392|     624|       5|
+## |cas   |  3069|    648|         1026|    1378|      17|
+## |Décès |  1552|    430|          422|     694|       6|
 ```
 
 ```
 ##       Guinea      Liberia      Nigéria Sierra Leone 
-##          607         1082           16          910
+##          648         1378           17         1026
 ```
 
 ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) 
@@ -112,8 +112,8 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1048       1093       1201       1323       1440       1711 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##       1779       1848       1975       2127       2240       2473 
-## 2014-08-20 
-##       2615
+## 2014-08-20 2014-08-26 
+##       2615       3069
 ```
 
 ```
@@ -125,24 +125,24 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##        632        660        672        729        826        932 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##        961       1013       1069       1145       1229       1350 
-## 2014-08-20 
-##       1427
+## 2014-08-20 2014-08-26 
+##       1427       1552
 ```
-Dernier bilan: 2014-08-20  
-Nombre cumulé de cas: $2615$  
-Nombre cumulé de décès: $1427$  
-Mortalité globale: $54.57$ %   
-- mortalité en Guinée: $66.89$ %  
-- mortalité au Libéria: $57.67$ %  
-- mortalité en Sierra Leone: $43.08$ %  
+Dernier bilan: 2014-08-26  
+Nombre cumulé de cas: $3069$  
+Nombre cumulé de décès: $1552$  
+Mortalité globale: $50.57$ %   
+- mortalité en Guinée: $66.36$ %  
+- mortalité au Libéria: $50.36$ %  
+- mortalité en Sierra Leone: $41.13$ %  
 
 New Cases et Courbe épidémique
 ==============================
 
 
 ```
-##       GUINEE      LIBERIA      NIGERIA SIERRA-LEONE 
-##           39           25           10           27
+##        CONGO       GUINEE      LIBERIA      NIGERIA SIERRA-LEONE 
+##            3           39           25           10           27
 ```
 
 ![plot of chunk newcase](./EVB_pays_files/figure-html/newcase1.png) ![plot of chunk newcase](./EVB_pays_files/figure-html/newcase2.png) 
