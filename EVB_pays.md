@@ -37,10 +37,10 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	83 obs. of  12 variables:
+'data.frame':	84 obs. of  12 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
- $ Pays         : Factor w/ 5 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 5 3 2 ...
+ $ Pays         : Factor w/ 6 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
  $ Localisation : logi  NA NA NA NA NA NA ...
  $ Total        : int  86 90 112 2 122 8 390 136 41 413 ...
  $ Confirmed    : int  NA NA NA NA 24 2 258 103 24 293 ...
@@ -74,7 +74,7 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 3069
+## [1] 3070
 ```
 
 ```
@@ -84,15 +84,15 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ```
 ## 
 ## 
-## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria|
-## |:-----|-----:|------:|------------:|-------:|-------:|
-## |cas   |  3069|    648|         1026|    1378|      17|
-## |Décès |  1552|    430|          422|     694|       6|
+## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal|
+## |:-----|-----:|------:|------------:|-------:|-------:|-------:|
+## |cas   |  3070|    648|         1026|    1378|      17|       1|
+## |Décès |  1552|    430|          422|     694|       6|       0|
 ```
 
 ```
-##       Guinea      Liberia      Nigéria Sierra Leone 
-##          648         1378           17         1026
+##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
+##          648         1378           17            1         1026
 ```
 
 ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) 
@@ -113,7 +113,7 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##       1779       1848       1975       2127       2240       2473 
 ## 2014-08-20 2014-08-26 
-##       2615       3069
+##       2615       3070
 ```
 
 ```
@@ -129,9 +129,9 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1427       1552
 ```
 Dernier bilan: 2014-08-26  
-Nombre cumulé de cas: $3069$  
+Nombre cumulé de cas: $3070$  
 Nombre cumulé de décès: $1552$  
-Mortalité globale: $50.57$ %   
+Mortalité globale: $50.55$ %   
 - mortalité en Guinée: $66.36$ %  
 - mortalité au Libéria: $50.36$ %  
 - mortalité en Sierra Leone: $41.13$ %  
@@ -141,14 +141,16 @@ New Cases et Courbe épidémique
 
 
 ```
-##        CONGO       GUINEE      LIBERIA      NIGERIA SIERRA-LEONE 
-##            3           39           25           10           27
+##        CONGO       GUINEE      LIBERIA      NIGERIA      SENEGAL 
+##            3           40           26           11            1 
+## SIERRA-LEONE 
+##           28
 ```
 
 ![plot of chunk newcase](./EVB_pays_files/figure-html/newcase1.png) ![plot of chunk newcase](./EVB_pays_files/figure-html/newcase2.png) 
 
 Nouveaux cas par pays
 ---------------------
-![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays1.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays2.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays3.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays4.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays5.png) 
+![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays1.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays2.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays3.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays4.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays5.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays6.png) 
 
 ToDo: cartographie

@@ -88,10 +88,14 @@ cas.cg <- d$Total[d$Pays == "Congo" & d$Date == max(d$Date)]
 dcd.cg <- d$Death[d$Pays == "Congo" & d$Date == max(d$Date)]
 cfr.cg <- round(dcd.cg * 100 / cas.ng, 2)
 
-a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng)
-b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng)
+cas.sg <- d$Total[d$Pays == "Senegal" & d$Date == max(d$Date)]
+dcd.sg <- d$Death[d$Pays == "Senegal" & d$Date == max(d$Date)]
+cfr.sg <- round(dcd.sg * 100 / cas.sg, 2)
+
+a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng, cas.sg)
+b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng, dcd.sg)
 t <- rbind(a,b)
-colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria")
+colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria","Senegal")
 rownames(t) <- c("cas", "Décès")
 kable(t)
 
@@ -128,7 +132,8 @@ plot(x$Total[x$Pays == "Guinea"], ylim=c(0,max(max.pays)), type = "bars", main =
 lines(x$Total[x$Pays == "Guinea"], ylim=c(0,450), col="red")
 lines(x$Total[x$Pays == "Liberia"], ylim=c(0,450), col="blue")
 lines(x$Total[x$Pays == "Sierra Leone"], ylim=c(0,450), col="green")
-legend("topleft", legend = c("Guinée","Libéria","Sierra Leone"), col=c("red","blue","green"), lty=1, lwd=2)
+lines(x$Total[x$Pays == "Senegal"], ylim=c(0,450), col="yellow")
+legend("topleft", legend = c("Guinée","Libéria","Sierra Leone","Senegal"), col=c("red","blue","green","yellow"), lty=1, lwd=2)
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 par(mar=m)
 
@@ -161,16 +166,18 @@ n2 <- n2[n2$pays != "CONGO",]
 x.date <- rep(n2$date, n2$new.case)
 x.pays <- rep(n2$pays, n2$new.case)
 new.case <- data.frame(x.date, x.pays)
+new.case$x.pays <- factor(new.case$x.pays)
 
 epicurve.weeks(x.date, sunday = FALSE, main="Ebola - Nouveaux cas")
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 
-col3seq.d <- c("#43A2CA", "#A8DDB5", "red", "#E0F3DB")
+col3seq.d <- c("#43A2CA", "#A8DDB5", "red", "yellow", "#E0F3DB")
+
 ebola <- epicurve.weeks(new.case$x.date, sunday = FALSE, strata = new.case$x.pays, col = col3seq.d, axisnames = FALSE, sub="D'après les données de l'OMS")
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 axis(1, at = ebola$xvals, labels = ebola$cmonth, tick = FALSE, line = 1)
 title(main="Ebola - Nouveaux cas", ylab = "fréquence", xlab = "2014 - semaines")
-legend("topleft", legend=c("Guinée", "Libéria", "Nigéria", "Sierra Leone"), col=col3seq.d, fill=col3seq.d, bty="n")
+legend("topleft", legend=c("Guinée", "Libéria", "Nigéria", "Sénégal", "Sierra Leone"), col=col3seq.d, fill=col3seq.d, bty="n")
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 ```
 
@@ -181,6 +188,7 @@ new.case.g <- new.case[new.case$x.pays=="GUINEE",]
 new.case.l <- new.case[new.case$x.pays=="LIBERIA",]
 new.case.sl <- new.case[new.case$x.pays=="SIERRA-LEONE",]
 new.case.na <- new.case[new.case$x.pays=="NIGERIA",]
+new.case.sg <- new.case[new.case$x.pays=="SENEGAL",]
 
 ebola.g <- epicurve.weeks(new.case.g$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#43A2CA", main="Guinée Conacry - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
@@ -191,6 +199,10 @@ axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 ebola.sl <- epicurve.weeks(new.case.sl$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="#E0F3DB", main="Sierra Leone - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
+
+ebola.sg <- epicurve.weeks(new.case.sg$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="yellow", main="Sénégal - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 
@@ -211,6 +223,9 @@ axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 copyright(an=2014, line = 0.5)
 
 ebola.na <- epicurve.weeks(new.case.na$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="red", main="Nigéria - 2014", min.date = min(new.case$x.date))
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+
+ebola.sg <- epicurve.weeks(new.case.sg$x.date, sunday = FALSE, axisnames = FALSE, sub="D'après les données de l'OMS", col="yellow", main="Sénégal - 2014", min.date = min(new.case$x.date))
 axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
 
 par(opar)
