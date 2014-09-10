@@ -20,6 +20,9 @@ source: [promed mail](http://www.promedmail.org) et [OMS](http://who.int/csr/don
 
 [healthmap](http://www.healthmap.org/fr/)
 
+[R Bloggers](http://www.r-bloggers.com/1-2-millions-deaths-by-ebola-projected-within-six-months/) et le [tableau](https://docs.google.com/spreadsheets/d/1GaQg5MgnwxlT_J447N3em8L8obNfwOMfAUEXD6oc4ck/edit#gid=0) associé.
+
+
 Le 7/8/2014 les donnée sont saisies dans un document partagé sur drive (Ebola). Le fichier _EBOLA 2014 - Pays.csv_ remplace le fichier _EVB_pays.csv_. Idem pour newcases.csv. Dans le document RPU_xml on trouvera une méthode pour importer le tableau de l'OMS via R.
 
 Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées au format .csv dans __EVB_pays.csv__.
@@ -151,6 +154,24 @@ Mortalité globale: $`r cfr`$ %
 
 New Cases et Courbe épidémique
 ==============================
+
+Depuis le 26/8, l'OMS n'indique plus le nombre de nouveaux cas. Il faut donc les calculer par soustraction des 2 derniers bilans.
+
+Exemple avec la Guinée:
+```{r}
+
+source("ebola.function.R")
+
+a <- tapply(d$Total[d$Pays=="Guinea"], d$Date[d$Pays=="Guinea"], sum)
+n <- length(a)
+b <- a[n] - a[n-1]
+```
+Pour la Guinée:  
+- dernier bilan: `r names(b)`  
+- nombre total de nouveau cas: `r as.numeric(b)`
+
+Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
+
 
 ```{r newcase, echo=FALSE}
 library(epitools)
