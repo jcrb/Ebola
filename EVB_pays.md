@@ -15,6 +15,9 @@ source: [promed mail](http://www.promedmail.org) et [OMS](http://who.int/csr/don
 
 [healthmap](http://www.healthmap.org/fr/)
 
+[R Bloggers](http://www.r-bloggers.com/1-2-millions-deaths-by-ebola-projected-within-six-months/) et le [tableau](https://docs.google.com/spreadsheets/d/1GaQg5MgnwxlT_J447N3em8L8obNfwOMfAUEXD6oc4ck/edit#gid=0) associé.
+
+
 Le 7/8/2014 les donnée sont saisies dans un document partagé sur drive (Ebola). Le fichier _EBOLA 2014 - Pays.csv_ remplace le fichier _EVB_pays.csv_. Idem pour newcases.csv. Dans le document RPU_xml on trouvera une méthode pour importer le tableau de l'OMS via R.
 
 Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées au format .csv dans __EVB_pays.csv__.
@@ -37,7 +40,7 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	89 obs. of  12 variables:
+'data.frame':	94 obs. of  12 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
  $ Pays         : Factor w/ 6 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
@@ -74,11 +77,11 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 3707
+## [1] 4293
 ```
 
 ```
-## [1] 1848
+## [1] 2296
 ```
 
 ```
@@ -86,13 +89,13 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 
 ## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal|
 ## |:-----|-----:|------:|------------:|-------:|-------:|-------:|
-## |cas   |  3707|    771|         1216|    1698|      21|       1|
-## |Décès |  1848|    494|          476|     871|       7|       0|
+## |cas   |  4293|    862|         1361|    2046|      21|       3|
+## |Décès |  2296|    555|          509|    1224|       8|       0|
 ```
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##          771         1698           21            1         1216
+##          862         2046           21            3         1361
 ```
 
 ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) 
@@ -112,8 +115,8 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1048       1093       1201       1323       1440       1711 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##       1779       1848       1975       2127       2240       2473 
-## 2014-08-20 2014-08-26 2014-08-31 
-##       2615       3070       3707
+## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 
+##       2615       3070       3707       4293
 ```
 
 ```
@@ -125,16 +128,16 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##        632        660        672        729        826        932 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##        961       1013       1069       1145       1229       1350 
-## 2014-08-20 2014-08-26 2014-08-31 
-##       1427       1552       1848
+## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 
+##       1427       1552       1848       2296
 ```
-Dernier bilan: 2014-08-31  
-Nombre cumulé de cas: $3707$  
-Nombre cumulé de décès: $1848$  
-Mortalité globale: $49.85$ %   
-- mortalité en Guinée: $64.07$ %  
-- mortalité au Libéria: $51.3$ %  
-- mortalité en Sierra Leone: $39.14$ %  
+Dernier bilan: 2014-09-06  
+Nombre cumulé de cas: $4293$  
+Nombre cumulé de décès: $2296$  
+Mortalité globale: $53.48$ %   
+- mortalité en Guinée: $64.39$ %  
+- mortalité au Libéria: $59.82$ %  
+- mortalité en Sierra Leone: $37.4$ %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -144,13 +147,27 @@ Depuis le 26/8, l'OMS n'indique plus le nombre de nouveaux cas. Il faut donc les
 Exemple avec la Guinée:
 
 ```r
+source("ebola_functions.R")
+
 a <- tapply(d$Total[d$Pays=="Guinea"], d$Date[d$Pays=="Guinea"], sum)
 n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-08-31  
-- nombre total de nouveau cas: 123
+- dernier bilan: 2014-09-06  
+- nombre total de nouveau cas: 91
+
+Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
+
+Il est possible de simplifier le calcul en utilisant l'instruction __diff__ qui calcule les différences successives.
+
+```r
+a <- tapply(d$Total[d$Pays=="Guinea"], d$Date[d$Pays=="Guinea"], sum)
+a1 <- names(a)
+a2 <- as.numeric(a)
+a3 <- c(NA, diff(a))
+b <- data.frame(a1,a2,a3)
+```
 
 
 

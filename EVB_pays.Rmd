@@ -160,7 +160,7 @@ Depuis le 26/8, l'OMS n'indique plus le nombre de nouveaux cas. Il faut donc les
 Exemple avec la Guinée:
 ```{r}
 
-source("ebola.function.R")
+source("ebola_functions.R")
 
 a <- tapply(d$Total[d$Pays=="Guinea"], d$Date[d$Pays=="Guinea"], sum)
 n <- length(a)
@@ -171,6 +171,17 @@ Pour la Guinée:
 - nombre total de nouveau cas: `r as.numeric(b)`
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
+
+Il est possible de simplifier le calcul en utilisant l'instruction __diff__ qui calcule les différences successives.
+```{r test_diff}
+a <- tapply(d$Total[d$Pays=="Guinea"], d$Date[d$Pays=="Guinea"], sum)
+a1 <- names(a)
+a2 <- as.numeric(a)
+a3 <- c(NA, diff(a))
+b <- data.frame(a1,a2,a3)
+
+```
+
 
 
 ```{r newcase, echo=FALSE}
