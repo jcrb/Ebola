@@ -39,7 +39,7 @@ d$Date <- as.Date(d$Date)
 names(d)
 str(d)
 
-d <- d[d$Pays != "Congo",]
+d <- d[d$Pays != "Congo",] # on retire le Congo (pas la même épidémie)
 d$Pays <- factor(d$Pays)
 ```
 Sommes par pays
@@ -111,6 +111,9 @@ tot <- tapply(d$Total, d$Date, sum)
 tot.dcd <- tapply(d$Death, d$Date, sum)
 date <- unique(d$Date)
 a <- data.frame(date,tot, tot.dcd)
+a$cfr.brut <- a$tot.dcd/a$tot # taux brut de décès
+lag <- 16 # lag time contamination/décès
+
 
 plot(a$date, a$tot, main="Nombre cumulatif de cas d'Ebola", ylab="Nombre de cas", xlab="2014", type="b")
 copyright(an=2014, titre="HUS-Cellule NRBCE")
