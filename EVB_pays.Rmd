@@ -41,7 +41,16 @@ str(d)
 
 d <- d[d$Pays != "Congo",] # on retire le Congo (pas la même épidémie)
 d$Pays <- factor(d$Pays)
+
+state <- names(table(d$Pays)) # liste des pays
 ```
+
+Légendes
+--------
+
+- HCW_case: personnel de santé contaminés
+- HCW_dcd : personnel de santé DCD d'ebola
+
 Sommes par pays
 ---------------
 
@@ -177,12 +186,16 @@ Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, sus
 
 Il est possible de simplifier le calcul en utilisant l'instruction __diff__ qui calcule les différences successives.
 ```{r test_diff}
-a <- tapply(d$Total[d$Pays=="Guinea"], d$Date[d$Pays=="Guinea"], sum)
+state <- "Senegal"
+a <- tapply(d$Total[d$Pays == state], d$Date[d$Pays == state], sum)
 a1 <- names(a)
 a2 <- as.numeric(a)
-a3 <- c(NA, diff(a))
+a3 <- c(0, diff(a)) # premier élément = 0 car 1ère différence nulle
+a3[a3 < 0] <- 0 # si différence négative on ramène à 0
 b <- data.frame(a1,a2,a3)
 
+# voir la routine new.case()
+# idem avec new.death()
 ```
 
 

@@ -37,10 +37,11 @@ The following objects are masked from 'package:base':
  [1] "EVB_Promed"    "Date"          "Pays"          "Localisation" 
  [5] "Total"         "Confirmed"     "Probable"      "Suspected"    
  [9] "Death"         "DCD_Confirmed" "DCD_Probable"  "DCD_suspected"
+[13] "HCW_case"      "HCW_dcd"      
 ```
 
 ```
-'data.frame':	94 obs. of  12 variables:
+'data.frame':	100 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
  $ Pays         : Factor w/ 6 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
@@ -53,7 +54,16 @@ The following objects are masked from 'package:base':
  $ DCD_Confirmed: int  NA NA NA NA 13 1 NA NA NA 193 ...
  $ DCD_Probable : int  NA NA NA NA 67 1 NA NA NA 82 ...
  $ DCD_suspected: int  NA NA NA NA 0 0 NA NA NA 28 ...
+ $ HCW_case     : int  NA NA NA NA NA NA NA NA NA NA ...
+ $ HCW_dcd      : int  NA NA NA NA NA NA NA NA NA NA ...
 ```
+
+Légendes
+--------
+
+- HCW_case: personnel de santé contaminés
+- HCW_dcd : personnel de santé DCD d'ebola
+
 Sommes par pays
 ---------------
 
@@ -77,11 +87,11 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 4293
+## [1] 4806
 ```
 
 ```
-## [1] 2296
+## [1] 2408
 ```
 
 ```
@@ -89,13 +99,13 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 
 ## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal|
 ## |:-----|-----:|------:|------------:|-------:|-------:|-------:|
-## |cas   |  4293|    862|         1361|    2046|      21|       3|
-## |Décès |  2296|    555|          509|    1224|       8|       0|
+## |cas   |  4806|    899|         1478|    2407|      21|       1|
+## |Décès |  2408|    568|          536|    1296|       8|       0|
 ```
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##          862         2046           21            3         1361
+##          899         2407           21            3         1478
 ```
 
 ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) 
@@ -115,8 +125,8 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1048       1093       1201       1323       1440       1711 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##       1779       1848       1975       2127       2240       2473 
-## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 
-##       2615       3070       3707       4293
+## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 
+##       2615       3070       3707       4293       4806
 ```
 
 ```
@@ -128,16 +138,16 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##        632        660        672        729        826        932 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##        961       1013       1069       1145       1229       1350 
-## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 
-##       1427       1552       1848       2296
+## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 
+##       1427       1552       1848       2296       2408
 ```
-Dernier bilan: 2014-09-06  
-Nombre cumulé de cas: $4293$  
-Nombre cumulé de décès: $2296$  
-Mortalité globale: $53.48$ %   
-- mortalité en Guinée: $64.39$ %  
-- mortalité au Libéria: $59.82$ %  
-- mortalité en Sierra Leone: $37.4$ %  
+Dernier bilan: 2014-09-10  
+Nombre cumulé de cas: $4806$  
+Nombre cumulé de décès: $2408$  
+Mortalité globale: $50.1$ %   
+- mortalité en Guinée: $63.18$ %  
+- mortalité au Libéria: $53.84$ %  
+- mortalité en Sierra Leone: $36.27$ %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -154,19 +164,24 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-09-06  
-- nombre total de nouveau cas: 91
+- dernier bilan: 2014-09-10  
+- nombre total de nouveau cas: 37
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
 Il est possible de simplifier le calcul en utilisant l'instruction __diff__ qui calcule les différences successives.
 
 ```r
-a <- tapply(d$Total[d$Pays=="Guinea"], d$Date[d$Pays=="Guinea"], sum)
+state <- "Senegal"
+a <- tapply(d$Total[d$Pays == state], d$Date[d$Pays == state], sum)
 a1 <- names(a)
 a2 <- as.numeric(a)
-a3 <- c(NA, diff(a))
+a3 <- c(0, diff(a)) # premier élément = 0 car 1ère différence nulle
+a3[a3 < 0] <- 0 # si différence négative on ramène à 0
 b <- data.frame(a1,a2,a3)
+
+# voir la routine new.case()
+# idem avec new.death()
 ```
 
 
@@ -174,9 +189,9 @@ b <- data.frame(a1,a2,a3)
 
 ```
 ##        CONGO       GUINEE      LIBERIA      NIGERIA      SENEGAL 
-##            3           40           26           11            1 
+##            4           43           29           14            4 
 ## SIERRA-LEONE 
-##           28
+##           31
 ```
 
 ![plot of chunk newcase](./EVB_pays_files/figure-html/newcase1.png) ![plot of chunk newcase](./EVB_pays_files/figure-html/newcase2.png) 
