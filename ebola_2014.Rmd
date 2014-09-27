@@ -16,6 +16,24 @@ A photo of the [EU Mobile lab in Guinea](http://ec.europa.eu/echo/images/photos/
 [Estimating the Future Number of Cases in the Ebola Epidemic — Liberia and Sierra Leone, 2014–2015](http://www.cdc.gov/mmwr/preview/mmwrhtml/su6303a1.htm?s_cid=su6303a1_w#Appendix-tab1)
 
 
+Cartographie dynamique [Healthmap](http://healthmap.org/ebola/#timeline)
+
+[Ebola Outbreak 2014: Information Resources](http://disasterinfo.nlm.nih.gov/dimrc/ebola_2014.html?utm_source=NHC+Master+List&utm_campaign=61d2a02fdf-DR633&utm_medium=email&utm_term=0_dabc309806-61d2a02fdf-54391422)
+
+[site français](http://www.les-crises.fr/virus-ebola/)
+
+World Health
+Organization developed the Field Information Management System (FIMS) software.
+The FIMSis a tool developed to support outbreak response activities in terms of case and contact data collection, analysis
+and production of related reports.FIMSsupports the following aspects of case and contact data management:
+- Registration of cases and case related data;
+- Registration of contacts and contacts related data;
+- Production of daily follow up reports;
+- Production of predefined summary and detailed reports
+- Exporting of data to different formats (txt, xls, xml etc.) for further analysis;
+- Summary case and contact mapping (using Health Mapper or GIS softwares);
+- Visualization of chains of transmission;
+
 Contexte général
 ----------------
 

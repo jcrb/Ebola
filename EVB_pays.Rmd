@@ -30,6 +30,8 @@ Les données sont colligées dans __EVB_PromedMail.ods__ puis réenregistrées a
 ```{r init, echo=FALSE, comment=""}
 library(knitr)
 library(xts)
+library(epitools)
+
 source("~/Documents/Resural/Stat Resural/RPU_2013/Routines/mes_fonctions.R")
 
 #file <- "EVB_pays.csv"
@@ -120,7 +122,9 @@ tot <- tapply(d$Total, d$Date, sum)
 tot.dcd <- tapply(d$Death, d$Date, sum)
 date <- unique(d$Date)
 a <- data.frame(date,tot, tot.dcd)
+a <- a[order(a$date),]
 a$cfr.brut <- a$tot.dcd/a$tot # taux brut de décès
+
 lag <- 16 # lag time contamination/décès
 
 
@@ -185,17 +189,43 @@ Pour la Guinée:
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
 Il est possible de simplifier le calcul en utilisant l'instruction __diff__ qui calcule les différences successives.
+
 ```{r test_diff}
-state <- "Senegal"
+state <- "Liberia"
 a <- tapply(d$Total[d$Pays == state], d$Date[d$Pays == state], sum)
 a1 <- names(a)
 a2 <- as.numeric(a)
 a3 <- c(0, diff(a)) # premier élément = 0 car 1ère différence nulle
 a3[a3 < 0] <- 0 # si différence négative on ramène à 0
 b <- data.frame(a1,a2,a3)
+names(b) <- c("date","cumul","delta")
+
+# On crée autant d'enregistrements qu'il y a de cas
+x.date <- rep(b$date, b$delta)
+ebola <- epicurve.weeks(x.date, sunday = FALSE, axisnames = FALSE, col="#A8DDB5")
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+axis(1, at = ebola$xvals, labels = ebola$cmonth, tick = FALSE, line = 1)
+title(main= paste0(state,": Ebola - Nouveaux cas"), ylab = "fréquence", xlab = "2014 - semaines")
 
 # voir la routine new.case()
+xl <- new.case(d, state)
+plot(as.Date(xl$date), xl$cumul, type="l")
+plot(as.Date(xl$date), xl$delta, type="h")
+barplot(xl$delta, names.arg=xl$date, las=2, cex.names = 0.8, main = paste0(state," - Nouveaux cas"))
+
 # idem avec new.death()
+xd <- new.death(d, state)
+barplot(xd$delta, names.arg=xd$date, las=2, cex.names = 0.8, main = paste0(state," - Nouveaux Décès"))
+
+# taux de mprtalité brut et à 15 jours
+mb <- xd$cumul/xl$cumul
+plot(mb, type="l")
+
+xll <- c(1,1,xl$cumul) # impose un décalage de 15 jours
+xdd <- c(xd$cumul,1,1)
+r <- round(xdd/xll, 2)
+plot(r, type="l")
+
 ```
 
 

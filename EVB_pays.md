@@ -41,7 +41,7 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	100 obs. of  14 variables:
+'data.frame':	122 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
  $ Pays         : Factor w/ 6 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
@@ -87,11 +87,11 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 4806
+## [1] 6574
 ```
 
 ```
-## [1] 2408
+## [1] 3091
 ```
 
 ```
@@ -99,13 +99,13 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 
 ## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal|
 ## |:-----|-----:|------:|------------:|-------:|-------:|-------:|
-## |cas   |  4806|    899|         1478|    2407|      21|       1|
-## |Décès |  2408|    568|          536|    1296|       8|       0|
+## |cas   |  6574|   1074|         2021|    3458|      20|       1|
+## |Décès |  3091|    648|          605|    1830|       8|       0|
 ```
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##          899         2407           21            3         1478
+##         1074         3458           21            3         2021
 ```
 
 ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) 
@@ -125,8 +125,10 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1048       1093       1201       1323       1440       1711 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##       1779       1848       1975       2127       2240       2473 
-## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 
-##       2615       3070       3707       4293       4806
+## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
+##       2615       3070       3707       4293       4806       5347 
+## 2014-09-20 2014-09-21 2014-09-23 
+##       5864       6263       6574
 ```
 
 ```
@@ -138,16 +140,18 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##        632        660        672        729        826        932 
 ## 2014-08-06 2014-08-09 2014-08-11 2014-08-13 2014-08-16 2014-08-18 
 ##        961       1013       1069       1145       1229       1350 
-## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 
-##       1427       1552       1848       2296       2408
+## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
+##       1427       1552       1848       2296       2408       2630 
+## 2014-09-20 2014-09-21 2014-09-23 
+##       2811       2917       3091
 ```
-Dernier bilan: 2014-09-10  
-Nombre cumulé de cas: $4806$  
-Nombre cumulé de décès: $2408$  
-Mortalité globale: $50.1$ %   
-- mortalité en Guinée: $63.18$ %  
-- mortalité au Libéria: $53.84$ %  
-- mortalité en Sierra Leone: $36.27$ %  
+Dernier bilan: 2014-09-23  
+Nombre cumulé de cas: $6574$  
+Nombre cumulé de décès: $3091$  
+Mortalité globale: $47.02$ %   
+- mortalité en Guinée: $60.34$ %  
+- mortalité au Libéria: $52.92$ %  
+- mortalité en Sierra Leone: $29.94$ %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -164,25 +168,78 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-09-10  
-- nombre total de nouveau cas: 37
+- dernier bilan: 2014-09-23  
+- nombre total de nouveau cas: 52
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
 Il est possible de simplifier le calcul en utilisant l'instruction __diff__ qui calcule les différences successives.
 
+
 ```r
-state <- "Senegal"
+state <- "Liberia"
 a <- tapply(d$Total[d$Pays == state], d$Date[d$Pays == state], sum)
 a1 <- names(a)
 a2 <- as.numeric(a)
 a3 <- c(0, diff(a)) # premier élément = 0 car 1ère différence nulle
 a3[a3 < 0] <- 0 # si différence négative on ramène à 0
 b <- data.frame(a1,a2,a3)
+names(b) <- c("date","cumul","delta")
 
-# voir la routine new.case()
-# idem avec new.death()
+# On crée autant d'enregistrements qu'il y a de cas
+x.date <- rep(b$date, b$delta)
+ebola <- epicurve.weeks(x.date, sunday = FALSE, axisnames = FALSE, col="#A8DDB5")
+axis(1, at = ebola$xvals, labels = ebola$cweek, tick = FALSE, line = 0)
+axis(1, at = ebola$xvals, labels = ebola$cmonth, tick = FALSE, line = 1)
+title(main= paste0(state,": Ebola - Nouveaux cas"), ylab = "fréquence", xlab = "2014 - semaines")
 ```
+
+![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff1.png) 
+
+```r
+# voir la routine new.case()
+xl <- new.case(d, state)
+plot(as.Date(xl$date), xl$cumul, type="l")
+```
+
+![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff2.png) 
+
+```r
+plot(as.Date(xl$date), xl$delta, type="h")
+```
+
+![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff3.png) 
+
+```r
+barplot(xl$delta, names.arg=xl$date, las=2, cex.names = 0.8, main = paste0(state," - Nouveaux cas"))
+```
+
+![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff4.png) 
+
+```r
+# idem avec new.death()
+xd <- new.death(d, state)
+barplot(xd$delta, names.arg=xd$date, las=2, cex.names = 0.8, main = paste0(state," - Nouveaux Décès"))
+```
+
+![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff5.png) 
+
+```r
+# taux de mprtalité brut et à 15 jours
+mb <- xd$cumul/xl$cumul
+plot(mb, type="l")
+```
+
+![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff6.png) 
+
+```r
+xll <- c(1,1,xl$cumul) # impose un décalage de 15 jours
+xdd <- c(xd$cumul,1,1)
+r <- round(xdd/xll, 2)
+plot(r, type="l")
+```
+
+![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff7.png) 
 
 
 
