@@ -41,10 +41,10 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	122 obs. of  14 variables:
+'data.frame':	128 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
- $ Pays         : Factor w/ 6 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
+ $ Pays         : Factor w/ 7 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
  $ Localisation : logi  NA NA NA NA NA NA ...
  $ Total        : int  86 90 112 2 122 8 390 136 41 413 ...
  $ Confirmed    : int  NA NA NA NA 24 2 258 103 24 293 ...
@@ -87,11 +87,11 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 6574
+## [1] 7179
 ```
 
 ```
-## [1] 3091
+## [1] 3338
 ```
 
 ```
@@ -99,13 +99,15 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 
 ## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal|
 ## |:-----|-----:|------:|------------:|-------:|-------:|-------:|
-## |cas   |  6574|   1074|         2021|    3458|      20|       1|
-## |Décès |  3091|    648|          605|    1830|       8|       0|
+## |cas   |  7179|   1157|         2304|    3696|      20|       1|
+## |Décès |  3338|    710|          622|    1998|       8|       0|
 ```
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##         1074         3458           21            3         2021
+##         1157         3696           21            3         2304 
+##          USA 
+##            1
 ```
 
 ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) 
@@ -127,8 +129,8 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1779       1848       1975       2127       2240       2473 
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       2615       3070       3707       4293       4806       5347 
-## 2014-09-20 2014-09-21 2014-09-23 
-##       5864       6263       6574
+## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 
+##       5864       6263       6574       7179
 ```
 
 ```
@@ -142,16 +144,16 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##        961       1013       1069       1145       1229       1350 
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       1427       1552       1848       2296       2408       2630 
-## 2014-09-20 2014-09-21 2014-09-23 
-##       2811       2917       3091
+## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 
+##       2811       2917       3091       3338
 ```
-Dernier bilan: 2014-09-23  
-Nombre cumulé de cas: $6574$  
-Nombre cumulé de décès: $3091$  
-Mortalité globale: $47.02$ %   
-- mortalité en Guinée: $60.34$ %  
-- mortalité au Libéria: $52.92$ %  
-- mortalité en Sierra Leone: $29.94$ %  
+Dernier bilan: 2014-09-28  
+Nombre cumulé de cas: $7179$  
+Nombre cumulé de décès: $3338$  
+Mortalité globale: $46.5$ %   
+- mortalité en Guinée: $61.37$ %  
+- mortalité au Libéria: $54.06$ %  
+- mortalité en Sierra Leone: $27$ %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -168,8 +170,8 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-09-23  
-- nombre total de nouveau cas: 52
+- dernier bilan: 2014-09-28  
+- nombre total de nouveau cas: 83
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
