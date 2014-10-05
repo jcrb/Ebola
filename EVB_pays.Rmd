@@ -106,10 +106,14 @@ cas.sg <- d$Total[d$Pays == "Senegal" & d$Date == max(d$Date)]
 dcd.sg <- d$Death[d$Pays == "Senegal" & d$Date == max(d$Date)]
 cfr.sg <- round(dcd.sg * 100 / cas.sg, 2)
 
-a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng, cas.sg)
-b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng, dcd.sg)
+cas.us <- d$Total[d$Pays == "USA" & d$Date == max(d$Date)]
+dcd.us <- d$Death[d$Pays == "USA" & d$Date == max(d$Date)]
+cfr.us <- round(dcd.us * 100 / cas.us, 2)
+
+a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng, cas.sg, cas.us)
+b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng, dcd.sg, dcd.us)
 t <- rbind(a,b)
-colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria","Senegal")
+colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria","Senegal", "USA")
 rownames(t) <- c("cas", "Décès")
 kable(t)
 
@@ -141,7 +145,13 @@ copyright(an=2014, titre="HUS-Cellule NRBCE")
 # uniquement en Guinée
 x <- xts(d, order.by = d$Date)
 plot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
-barplot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas")
+barplot(x$Total[x$Pays == "Guinea"], main="Cas cumulatif en Guinée", ylab="Nombre de cas", las=2, cex.names = 0.8)
+copyright(an=2014, titre="HUS-Cellule NRBCE")
+
+# uniquement au Libéria
+x <- xts(d, order.by = d$Date)
+plot(x$Total[x$Pays == "Liberia"], main="Cas cumulatif au Libéria", ylab="Nombre de cas")
+barplot(x$Total[x$Pays == "Liberia"], main="Cas cumulatif au Libéria", ylab="Nombre de cas", las=2, cex.names = 0.8)
 copyright(an=2014, titre="HUS-Cellule NRBCE")
 
 # major.format permet de définir la syntaxe des dates pour l'axe des X [source](https://stat.ethz.ch/pipermail/r-help/2011-July/285360.html)
@@ -161,12 +171,12 @@ tapply(d$Death, d$Date, sum)
 
 ```
 Dernier bilan: `r max(d$Date)`  
-Nombre cumulé de cas: $`r cas`$  
-Nombre cumulé de décès: $`r dcd`$  
-Mortalité globale: $`r cfr`$ %   
-- mortalité en Guinée: $`r cfr.g`$ %  
-- mortalité au Libéria: $`r cfr.lb`$ %  
-- mortalité en Sierra Leone: $`r cfr.sl`$ %  
+Nombre cumulé de cas: `r cas`  
+Nombre cumulé de décès: `r dcd`  
+Mortalité globale: `r cfr` %   
+- mortalité en Guinée: `r cfr.g` %  
+- mortalité au Libéria: `r cfr.lb` %  
+- mortalité en Sierra Leone: `r cfr.sl` %  
 
 New Cases et Courbe épidémique
 ==============================

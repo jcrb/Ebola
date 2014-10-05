@@ -41,7 +41,7 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	128 obs. of  14 variables:
+'data.frame':	135 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
  $ Pays         : Factor w/ 7 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
@@ -87,36 +87,36 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 7179
+## [1] 7492
 ```
 
 ```
-## [1] 3338
+## [1] 3439
 ```
 
 ```
 ## 
 ## 
-## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal|
-## |:-----|-----:|------:|------------:|-------:|-------:|-------:|
-## |cas   |  7179|   1157|         2304|    3696|      20|       1|
-## |Décès |  3338|    710|          622|    1998|       8|       0|
+## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal| USA|
+## |:-----|-----:|------:|------------:|-------:|-------:|-------:|---:|
+## |cas   |  7492|   1199|         2437|    3834|      20|       1|   1|
+## |Décès |  3439|    739|          623|    2069|       8|       0|   0|
 ```
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##         1157         3696           21            3         2304 
+##         1199         3834           21            3         2437 
 ##          USA 
 ##            1
 ```
 
-![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) 
+![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs5.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs6.png) 
 
 ```
 ## Warning: le type de graphe 'bars' sera tronqué au premier caractère
 ```
 
-![plot of chunk calculs](./EVB_pays_files/figure-html/calculs5.png) 
+![plot of chunk calculs](./EVB_pays_files/figure-html/calculs7.png) 
 
 ```
 ## 2014-03-24 2014-03-25 2014-03-28 2014-03-29 2014-03-31 2014-06-22 
@@ -129,8 +129,8 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1779       1848       1975       2127       2240       2473 
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       2615       3070       3707       4293       4806       5347 
-## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 
-##       5864       6263       6574       7179
+## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 
+##       5864       6263       6574       7179       7492
 ```
 
 ```
@@ -144,16 +144,16 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##        961       1013       1069       1145       1229       1350 
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       1427       1552       1848       2296       2408       2630 
-## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 
-##       2811       2917       3091       3338
+## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 
+##       2811       2917       3091       3338       3439
 ```
-Dernier bilan: 2014-09-28  
-Nombre cumulé de cas: $7179$  
-Nombre cumulé de décès: $3338$  
-Mortalité globale: $46.5$ %   
-- mortalité en Guinée: $61.37$ %  
-- mortalité au Libéria: $54.06$ %  
-- mortalité en Sierra Leone: $27$ %  
+Dernier bilan: 2014-09-30  
+Nombre cumulé de cas: 7492  
+Nombre cumulé de décès: 3439  
+Mortalité globale: 45.9 %   
+- mortalité en Guinée: 61.63 %  
+- mortalité au Libéria: 53.96 %  
+- mortalité en Sierra Leone: 25.56 %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -170,8 +170,8 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-09-28  
-- nombre total de nouveau cas: 83
+- dernier bilan: 2014-09-30  
+- nombre total de nouveau cas: 42
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
