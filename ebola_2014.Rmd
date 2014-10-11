@@ -98,6 +98,10 @@ confirmé pour EVD, dont 8 sont morts. enquêtes sur les cas et contacts
 suivi se poursuivent, avec 375 contacts sous suivi médical à
 présente. 
 
+FAQ Ebola
+----------
+[CDC](Interim Guidance for Environmental Infection Control in Hospitals for Ebola Virus)
+
 Allemagne
 ==========
 
@@ -123,6 +127,11 @@ A patient being treated for Ebola has died in the hospital in the US state of Te
 
 [Liberian Ebola patient dies in Texas hospital](http://www.dw.de/liberian-ebola-patient-dies-in-texas-hospital/a-1798300)
 
+[Family members of Dallas Ebola patient confined to home under armed guard ](http://www.dallasnews.com/news/metro/20141002-family-members-of-dallas-ebola-patient-confined-to-home-under-armed-guard.ece)
+
+[IDE pas pretes](http://www.nationalnursesunited.org/press/entry/national-nurse-survey-shows-hospitals-still-not-prepared-for-us-ebola)
+
+
 Esapagne
 ========
 
@@ -136,3 +145,10 @@ Patients contaminés
 - IDE/AS qui s'est occupée du patient rappatrié 2. Institudo de salud carlos III.
 
 [Europe probes Spanish Ebola transmission](http://www.dw.de/europe-probes-spanish-ebola-transmission/a-17981652)
+
+
+Open Street Map
+===============
+
+[Online volunteers map uncharted Ebola zones to help save lives](http://www.trust.org/item/20140918050913-ho2mk/?source=spotlight)
+
