@@ -41,10 +41,10 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	135 obs. of  14 variables:
+'data.frame':	142 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
- $ Pays         : Factor w/ 7 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
+ $ Pays         : Factor w/ 8 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
  $ Localisation : logi  NA NA NA NA NA NA ...
  $ Total        : int  86 90 112 2 122 8 390 136 41 413 ...
  $ Confirmed    : int  NA NA NA NA 24 2 258 103 24 293 ...
@@ -87,27 +87,27 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 7492
+## [1] 8034
 ```
 
 ```
-## [1] 3439
+## [1] 3865
 ```
 
 ```
 ## 
 ## 
-## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal| USA|
-## |:-----|-----:|------:|------------:|-------:|-------:|-------:|---:|
-## |cas   |  7492|   1199|         2437|    3834|      20|       1|   1|
-## |Décès |  3439|    739|          623|    2069|       8|       0|   0|
+## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal| USA| Esgagne|
+## |:-----|-----:|------:|------------:|-------:|-------:|-------:|---:|-------:|
+## |cas   |  8034|   1298|         2789|    3924|      20|       1|   1|       1|
+## |Décès |  3865|    768|          879|    2210|       8|       0|   0|       0|
 ```
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##         1199         3834           21            3         2437 
-##          USA 
-##            1
+##         1298         3924           21            3         2789 
+##        Spain          USA 
+##            1            1
 ```
 
 ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs5.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs6.png) 
@@ -129,8 +129,8 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##       1779       1848       1975       2127       2240       2473 
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       2615       3070       3707       4293       4806       5347 
-## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 
-##       5864       6263       6574       7179       7492
+## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
+##       5864       6263       6574       7179       7492       8034
 ```
 
 ```
@@ -144,16 +144,16 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ##        961       1013       1069       1145       1229       1350 
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       1427       1552       1848       2296       2408       2630 
-## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 
-##       2811       2917       3091       3338       3439
+## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
+##       2811       2917       3091       3338       3439       3865
 ```
-Dernier bilan: 2014-09-30  
-Nombre cumulé de cas: 7492  
-Nombre cumulé de décès: 3439  
-Mortalité globale: 45.9 %   
-- mortalité en Guinée: 61.63 %  
-- mortalité au Libéria: 53.96 %  
-- mortalité en Sierra Leone: 25.56 %  
+Dernier bilan: 2014-10-05  
+Nombre cumulé de cas: 8034  
+Nombre cumulé de décès: 3865  
+Mortalité globale: 48.11 %   
+- mortalité en Guinée: 59.17 %  
+- mortalité au Libéria: 56.32 %  
+- mortalité en Sierra Leone: 31.52 %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -170,8 +170,8 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-09-30  
-- nombre total de nouveau cas: 42
+- dernier bilan: 2014-10-05  
+- nombre total de nouveau cas: 99
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 

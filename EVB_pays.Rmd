@@ -110,10 +110,14 @@ cas.us <- d$Total[d$Pays == "USA" & d$Date == max(d$Date)]
 dcd.us <- d$Death[d$Pays == "USA" & d$Date == max(d$Date)]
 cfr.us <- round(dcd.us * 100 / cas.us, 2)
 
-a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng, cas.sg, cas.us)
-b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng, dcd.sg, dcd.us)
+cas.sp <- d$Total[d$Pays == "Spain" & d$Date == max(d$Date)]
+dcd.sp <- d$Death[d$Pays == "Spain" & d$Date == max(d$Date)]
+cfr.sp <- round(dcd.sp * 100 / cas.sp, 2)
+
+a <- cbind(cas, cas.g, cas.sl, cas.lb, cas.ng, cas.sg, cas.us, cas.sp)
+b <- cbind(dcd, dcd.g, dcd.sl, dcd.lb, dcd.ng, dcd.sg, dcd.us, dcd.sp)
 t <- rbind(a,b)
-colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria","Senegal", "USA")
+colnames(t) <- c("Total", "Guinée", "Sierra Leone", "Libéria", "Nigéria","Senegal", "USA", "Esgagne")
 rownames(t) <- c("cas", "Décès")
 kable(t)
 
