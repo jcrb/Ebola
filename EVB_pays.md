@@ -41,7 +41,7 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	142 obs. of  14 variables:
+'data.frame':	149 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
  $ Pays         : Factor w/ 8 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
@@ -87,36 +87,33 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 8034
+## [1] 8997
 ```
 
 ```
-## [1] 3865
+## [1] 4493
 ```
 
-```
-## 
-## 
-## |      | Total| Guinée| Sierra Leone| Libéria| Nigéria| Senegal| USA| Esgagne|
-## |:-----|-----:|------:|------------:|-------:|-------:|-------:|---:|-------:|
-## |cas   |  8034|   1298|         2789|    3924|      20|       1|   1|       1|
-## |Décès |  3865|    768|          879|    2210|       8|       0|   0|       0|
-```
+         Total   Guinée   Sierra Leone   Libéria   Nigéria   Senegal   USA   Esgagne
+------  ------  -------  -------------  --------  --------  --------  ----  --------
+cas       8997     1472           3252      4249        20         1     2         1
+Décès     4493      843           1183      2458         8         0     1         0
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##         1298         3924           21            3         2789 
+##         1472         4249           21            3         3252 
 ##        Spain          USA 
-##            1            1
+##            1            2
 ```
 
-![plot of chunk calculs](./EVB_pays_files/figure-html/calculs1.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs2.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs3.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs4.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs5.png) ![plot of chunk calculs](./EVB_pays_files/figure-html/calculs6.png) 
+![](./EVB_pays_files/figure-html/calculs-1.png) ![](./EVB_pays_files/figure-html/calculs-2.png) ![](./EVB_pays_files/figure-html/calculs-3.png) ![](./EVB_pays_files/figure-html/calculs-4.png) ![](./EVB_pays_files/figure-html/calculs-5.png) ![](./EVB_pays_files/figure-html/calculs-6.png) 
 
 ```
-## Warning: le type de graphe 'bars' sera tronqué au premier caractère
+## Warning in plot.xy(xy, type, ...): le type de graphe 'bars' sera tronqué
+## au premier caractère
 ```
 
-![plot of chunk calculs](./EVB_pays_files/figure-html/calculs7.png) 
+![](./EVB_pays_files/figure-html/calculs-7.png) 
 
 ```
 ## 2014-03-24 2014-03-25 2014-03-28 2014-03-29 2014-03-31 2014-06-22 
@@ -130,7 +127,9 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       2615       3070       3707       4293       4806       5347 
 ## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
-##       5864       6263       6574       7179       7492       8034
+##       5864       6263       6574       7179       7492       8034 
+## 2014-10-12 
+##       8997
 ```
 
 ```
@@ -145,15 +144,17 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 ## 2014-08-20 2014-08-26 2014-08-31 2014-09-06 2014-09-10 2014-09-14 
 ##       1427       1552       1848       2296       2408       2630 
 ## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
-##       2811       2917       3091       3338       3439       3865
+##       2811       2917       3091       3338       3439       3865 
+## 2014-10-12 
+##       4493
 ```
-Dernier bilan: 2014-10-05  
-Nombre cumulé de cas: 8034  
-Nombre cumulé de décès: 3865  
-Mortalité globale: 48.11 %   
-- mortalité en Guinée: 59.17 %  
-- mortalité au Libéria: 56.32 %  
-- mortalité en Sierra Leone: 31.52 %  
+Dernier bilan: 2014-10-12  
+Nombre cumulé de cas: 8997  
+Nombre cumulé de décès: 4493  
+Mortalité globale: 49.94 %   
+- mortalité en Guinée: 57.27 %  
+- mortalité au Libéria: 57.85 %  
+- mortalité en Sierra Leone: 36.38 %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -170,8 +171,8 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-10-05  
-- nombre total de nouveau cas: 99
+- dernier bilan: 2014-10-12  
+- nombre total de nouveau cas: 174
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
@@ -196,7 +197,7 @@ axis(1, at = ebola$xvals, labels = ebola$cmonth, tick = FALSE, line = 1)
 title(main= paste0(state,": Ebola - Nouveaux cas"), ylab = "fréquence", xlab = "2014 - semaines")
 ```
 
-![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff1.png) 
+![](./EVB_pays_files/figure-html/test_diff-1.png) 
 
 ```r
 # voir la routine new.case()
@@ -204,19 +205,19 @@ xl <- new.case(d, state)
 plot(as.Date(xl$date), xl$cumul, type="l")
 ```
 
-![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff2.png) 
+![](./EVB_pays_files/figure-html/test_diff-2.png) 
 
 ```r
 plot(as.Date(xl$date), xl$delta, type="h")
 ```
 
-![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff3.png) 
+![](./EVB_pays_files/figure-html/test_diff-3.png) 
 
 ```r
 barplot(xl$delta, names.arg=xl$date, las=2, cex.names = 0.8, main = paste0(state," - Nouveaux cas"))
 ```
 
-![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff4.png) 
+![](./EVB_pays_files/figure-html/test_diff-4.png) 
 
 ```r
 # idem avec new.death()
@@ -224,7 +225,7 @@ xd <- new.death(d, state)
 barplot(xd$delta, names.arg=xd$date, las=2, cex.names = 0.8, main = paste0(state," - Nouveaux Décès"))
 ```
 
-![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff5.png) 
+![](./EVB_pays_files/figure-html/test_diff-5.png) 
 
 ```r
 # taux de mprtalité brut et à 15 jours
@@ -232,7 +233,7 @@ mb <- xd$cumul/xl$cumul
 plot(mb, type="l")
 ```
 
-![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff6.png) 
+![](./EVB_pays_files/figure-html/test_diff-6.png) 
 
 ```r
 xll <- c(1,1,xl$cumul) # impose un décalage de 15 jours
@@ -241,7 +242,7 @@ r <- round(xdd/xll, 2)
 plot(r, type="l")
 ```
 
-![plot of chunk test_diff](./EVB_pays_files/figure-html/test_diff7.png) 
+![](./EVB_pays_files/figure-html/test_diff-7.png) 
 
 
 
@@ -253,10 +254,10 @@ plot(r, type="l")
 ##           31
 ```
 
-![plot of chunk newcase](./EVB_pays_files/figure-html/newcase1.png) ![plot of chunk newcase](./EVB_pays_files/figure-html/newcase2.png) 
+![](./EVB_pays_files/figure-html/newcase-1.png) ![](./EVB_pays_files/figure-html/newcase-2.png) 
 
 Nouveaux cas par pays
 ---------------------
-![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays1.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays2.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays3.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays4.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays5.png) ![plot of chunk newcase_pays](./EVB_pays_files/figure-html/newcase_pays6.png) 
+![](./EVB_pays_files/figure-html/newcase_pays-1.png) ![](./EVB_pays_files/figure-html/newcase_pays-2.png) ![](./EVB_pays_files/figure-html/newcase_pays-3.png) ![](./EVB_pays_files/figure-html/newcase_pays-4.png) ![](./EVB_pays_files/figure-html/newcase_pays-5.png) ![](./EVB_pays_files/figure-html/newcase_pays-6.png) 
 
 ToDo: cartographie

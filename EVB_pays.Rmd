@@ -32,6 +32,7 @@ library(knitr)
 library(xts)
 library(epitools)
 
+source("ebola_functions.R")
 source("~/Documents/Resural/Stat Resural/RPU_2013/Routines/mes_fonctions.R")
 
 #file <- "EVB_pays.csv"
@@ -231,7 +232,7 @@ barplot(xl$delta, names.arg=xl$date, las=2, cex.names = 0.8, main = paste0(state
 xd <- new.death(d, state)
 barplot(xd$delta, names.arg=xd$date, las=2, cex.names = 0.8, main = paste0(state," - Nouveaux Décès"))
 
-# taux de mprtalité brut et à 15 jours
+# taux de mortalité brut et à 15 jours
 mb <- xd$cumul/xl$cumul
 plot(mb, type="l")
 
@@ -240,6 +241,17 @@ xdd <- c(xd$cumul,1,1)
 r <- round(xdd/xll, 2)
 plot(r, type="l")
 
+```
+
+Nouveaux cas: automatisation avec ebola_function
+-------------------------------------------------
+```{r function}
+state <- "Liberia"
+nd <-new.case(d, state, "Death") # nouveau décès au Libéria
+ebola.curve(nd, state, title="Décès")
+
+nc <-new.case(d, state, "Total")
+ebola.curve(nc, state, title="Nouveaux cas")
 ```
 
 
