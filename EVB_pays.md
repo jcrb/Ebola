@@ -41,7 +41,7 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	149 obs. of  14 variables:
+'data.frame':	163 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
  $ Pays         : Factor w/ 8 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
@@ -87,23 +87,23 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 8997
+## [1] 9936
 ```
 
 ```
-## [1] 4493
+## [1] 4877
 ```
 
          Total   Guinée   Sierra Leone   Libéria   Nigéria   Senegal   USA   Esgagne
 ------  ------  -------  -------------  --------  --------  --------  ----  --------
-cas       8997     1472           3252      4249        20         1     2         1
-Décès     4493      843           1183      2458         8         0     1         0
+cas       9936     1540           3706      4665        20         1     3         1
+Décès     4877      904           1259      2705         8         0     1         0
 
 ```
 ##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##         1472         4249           21            3         3252 
+##         1540         4665           21            3         3706 
 ##        Spain          USA 
-##            1            2
+##            1            3
 ```
 
 ![](./EVB_pays_files/figure-html/calculs-1.png) ![](./EVB_pays_files/figure-html/calculs-2.png) ![](./EVB_pays_files/figure-html/calculs-3.png) ![](./EVB_pays_files/figure-html/calculs-4.png) ![](./EVB_pays_files/figure-html/calculs-5.png) ![](./EVB_pays_files/figure-html/calculs-6.png) 
@@ -128,8 +128,8 @@ Décès     4493      843           1183      2458         8         0     1    
 ##       2615       3070       3707       4293       4806       5347 
 ## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
 ##       5864       6263       6574       7179       7492       8034 
-## 2014-10-12 
-##       8997
+## 2014-10-12 2014-10-14 2014-10-19 
+##       8997       9216       9936
 ```
 
 ```
@@ -145,16 +145,16 @@ Décès     4493      843           1183      2458         8         0     1    
 ##       1427       1552       1848       2296       2408       2630 
 ## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
 ##       2811       2917       3091       3338       3439       3865 
-## 2014-10-12 
-##       4493
+## 2014-10-12 2014-10-14 2014-10-19 
+##       4493       4555       4877
 ```
-Dernier bilan: 2014-10-12  
-Nombre cumulé de cas: 8997  
-Nombre cumulé de décès: 4493  
-Mortalité globale: 49.94 %   
-- mortalité en Guinée: 57.27 %  
-- mortalité au Libéria: 57.85 %  
-- mortalité en Sierra Leone: 36.38 %  
+Dernier bilan: 2014-10-19  
+Nombre cumulé de cas: 9936  
+Nombre cumulé de décès: 4877  
+Mortalité globale: 49.08 %   
+- mortalité en Guinée: 58.7 %  
+- mortalité au Libéria: 57.98 %  
+- mortalité en Sierra Leone: 33.97 %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -171,8 +171,8 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-10-12  
-- nombre total de nouveau cas: 174
+- dernier bilan: 2014-10-19  
+- nombre total de nouveau cas: 21
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
@@ -228,7 +228,7 @@ barplot(xd$delta, names.arg=xd$date, las=2, cex.names = 0.8, main = paste0(state
 ![](./EVB_pays_files/figure-html/test_diff-5.png) 
 
 ```r
-# taux de mprtalité brut et à 15 jours
+# taux de mortalité brut et à 15 jours
 mb <- xd$cumul/xl$cumul
 plot(mb, type="l")
 ```
@@ -243,6 +243,24 @@ plot(r, type="l")
 ```
 
 ![](./EVB_pays_files/figure-html/test_diff-7.png) 
+
+Nouveaux cas: automatisation avec ebola_function
+-------------------------------------------------
+
+```r
+state <- "Liberia"
+nd <-new.case(d, state, "Death") # nouveau décès au Libéria
+ebola.curve(nd, state, title="Décès")
+```
+
+![](./EVB_pays_files/figure-html/function-1.png) 
+
+```r
+nc <-new.case(d, state, "Total")
+ebola.curve(nc, state, title="Nouveaux cas")
+```
+
+![](./EVB_pays_files/figure-html/function-2.png) 
 
 
 
