@@ -41,10 +41,10 @@ The following objects are masked from 'package:base':
 ```
 
 ```
-'data.frame':	163 obs. of  14 variables:
+'data.frame':	179 obs. of  14 variables:
  $ EVB_Promed   : int  NA NA NA NA NA NA 72 72 72 77 ...
  $ Date         : Date, format: "2014-03-24" "2014-03-25" ...
- $ Pays         : Factor w/ 8 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 6 3 2 ...
+ $ Pays         : Factor w/ 9 levels "Congo","Guinea",..: 2 2 2 3 2 3 2 7 3 2 ...
  $ Localisation : logi  NA NA NA NA NA NA ...
  $ Total        : int  86 90 112 2 122 8 390 136 41 413 ...
  $ Confirmed    : int  NA NA NA NA 24 2 258 103 24 293 ...
@@ -87,23 +87,23 @@ NB: les cas représentent la somme des cas suspects, probables et confirmés.
 
 
 ```
-## [1] 9936
+## [1] 13464
 ```
 
 ```
-## [1] 4877
+## [1] 4951
 ```
 
-         Total   Guinée   Sierra Leone   Libéria   Nigéria   Senegal   USA   Esgagne
-------  ------  -------  -------------  --------  --------  --------  ----  --------
-cas       9936     1540           3706      4665        20         1     3         1
-Décès     4877      904           1259      2705         8         0     1         0
+         Total   Guinée   Sierra Leone   Libéria   Nigéria   Senegal   USA   Esgagne   Mali
+------  ------  -------  -------------  --------  --------  --------  ----  --------  -----
+cas      13464     1667           5235      6535        20         1     4         1      1
+Décès     4951     1018           1510      2413         8         0     1         0      1
 
 ```
-##       Guinea      Liberia      Nigéria      Senegal Sierra Leone 
-##         1540         4665           21            3         3706 
-##        Spain          USA 
-##            1            3
+##       Guinea      Liberia         Mali      Nigéria      Senegal 
+##         1667         6535            1           21            3 
+## Sierra Leone        Spain          USA 
+##         5235            1            4
 ```
 
 ![](./EVB_pays_files/figure-html/calculs-1.png) ![](./EVB_pays_files/figure-html/calculs-2.png) ![](./EVB_pays_files/figure-html/calculs-3.png) ![](./EVB_pays_files/figure-html/calculs-4.png) ![](./EVB_pays_files/figure-html/calculs-5.png) ![](./EVB_pays_files/figure-html/calculs-6.png) 
@@ -128,8 +128,8 @@ Décès     4877      904           1259      2705         8         0     1    
 ##       2615       3070       3707       4293       4806       5347 
 ## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
 ##       5864       6263       6574       7179       7492       8034 
-## 2014-10-12 2014-10-14 2014-10-19 
-##       8997       9216       9936
+## 2014-10-12 2014-10-14 2014-10-19 2014-10-22 2014-10-29 
+##       8997       9216       9936      10141      13464
 ```
 
 ```
@@ -145,16 +145,16 @@ Décès     4877      904           1259      2705         8         0     1    
 ##       1427       1552       1848       2296       2408       2630 
 ## 2014-09-20 2014-09-21 2014-09-23 2014-09-28 2014-09-30 2014-10-05 
 ##       2811       2917       3091       3338       3439       3865 
-## 2014-10-12 2014-10-14 2014-10-19 
-##       4493       4555       4877
+## 2014-10-12 2014-10-14 2014-10-19 2014-10-22 2014-10-29 
+##       4493       4555       4877       4922       4951
 ```
-Dernier bilan: 2014-10-19  
-Nombre cumulé de cas: 9936  
-Nombre cumulé de décès: 4877  
-Mortalité globale: 49.08 %   
-- mortalité en Guinée: 58.7 %  
-- mortalité au Libéria: 57.98 %  
-- mortalité en Sierra Leone: 33.97 %  
+Dernier bilan: 2014-10-29  
+Nombre cumulé de cas: 13464  
+Nombre cumulé de décès: 4951  
+Mortalité globale: 36.77 %   
+- mortalité en Guinée: 61.07 %  
+- mortalité au Libéria: 36.92 %  
+- mortalité en Sierra Leone: 28.84 %  
 
 New Cases et Courbe épidémique
 ==============================
@@ -171,8 +171,8 @@ n <- length(a)
 b <- a[n] - a[n-1]
 ```
 Pour la Guinée:  
-- dernier bilan: 2014-10-19  
-- nombre total de nouveau cas: 21
+- dernier bilan: 2014-10-29  
+- nombre total de nouveau cas: 114
 
 Il faut répéter l'opération pour les autres comptes (Confirmed, Probable, suspected) et les autres pays => function
 
