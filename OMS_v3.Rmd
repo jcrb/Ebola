@@ -1,0 +1,91 @@
+---
+title: "Ebola OMS"
+author: "JcB"
+date: "23/11/2014"
+output: html_document
+---
+
+```{r init}
+library(lubridate)
+
+```
+
+Depuis le 22/11/2014 l'OMS change (encore une fois) la présentation des données Ebola: [Ebola data and statistics](http://apps.who.int/gho/data/node.ebola-sitrep). Les données snt accessible au format .CSV et Excel. 
+
+#### Guinée [GIN]: 
+
+nombre de cas par districts:
+http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:*;COUNTRY:GIN;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-11-19
+
+Nombre de NOUVEAUX cas:
+http://apps.who.int/gho/data/view.ebola-sitrep.ebola-country-GIN-20141119-data?lang=en
+
+#### libéria [LBR]:
+
+Nombre de cas par districts
+http://apps.who.int/gho/data/view.ebola-sitrep.ebola-country-LBR-new-conf-prob-districs-20141119-data?lang=en
+
+Nouveaux cas à Montserrado
+http://apps.who.int/gho/data/view.ebola-sitrep.ebola-country-LBR-LBR008003-20141119-data?lang=en
+
+Cas cumulé
+http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES&filter=LOCATION:-;COUNTRY:LBR;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-11-19
+
+#### Sierra Leone [SLE]:
+
+Nouveaux cas Freetown:
+http://apps.who.int/gho/data/view.ebola-sitrep.ebola-country-SLE-SLE004001-20141119-data?lang=en
+
+Cas cumulés par semaine et district:
+http://apps.who.int/gho/data/view.ebola-sitrep.ebola-country-SLE-new-conf-prob-districs-20141119-data?lang=en
+
+cas cumulés
+http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES&filter=LOCATION:-;COUNTRY:SLE;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-11-19
+
+toutes les données au format excel
+http://apps.who.int/gho/athena/xmart/data.xls?target=EBOLA_MEASURE/CASES&format=xml&profile=excel&filter=LOCATION:-;COUNTRY:SLE;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-11-19
+
+#### Pour tous les pays [*]
+
+http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES,DEATHS&filter=COUNTRY:*;LOCATION:-;DATAPACKAGEID:2014-11-21;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS
+
+#### fichiers Excel
+
+OMS_excel: 
+http://apps.who.int/gho/athena/xmart/data.xls?target=EBOLA_MEASURE/CASES,DEATHS&format=xml&profile=excel&filter=COUNTRY:*;LOCATION:-;DATAPACKAGEID:2014-11-21;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS
+
+
+lecture des données depuis le site OMS
+---------------------------------------
+
+```{r}
+date <- "2014-11-21"
+oms <- paste0("http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES,DEATHS&filter=COUNTRY:*;LOCATION:-;DATAPACKAGEID:", date, ";INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS")
+d <- read.csv(oms)
+str(d)
+summary(d)
+```
+date: `r date`
+
+semaine: `r week(date)`
+
+Analyse
+-------
+
+Nombre de cas cumulés à la date du `r date`:
+
+```{r}
+cases <- d[d$EBOLA_MEASURE == "CASES",]
+total.cases <- tapply(cases$Numeric, cases$CASE_DEFINITION, sum, na.rm=TRUE)
+total.cases
+```
+`r total.cases["CONF_PROD_SUSP"]`
+
+Nombre de décès cumulés:
+
+```{r}
+dcd <- d[d$EBOLA_MEASURE == "DEATHS",]
+total.dcd <- tapply(dcd$Numeric, dcd$CASE_DEFINITION, sum, na.rm=TRUE)
+total.dcd
+```
+`r total.dcd["CONF_PROD_SUSP"]`
