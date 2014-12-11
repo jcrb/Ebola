@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GHO Created="2014-12-06T19:33:48Z"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="ghodata.xsd">
+    <QueryParameter Name="format" Value="xml"/>
+    <QueryParameter Name="baseurl" Value="http://apps.who.int/gho/athena/xmart/"/>
+    <QueryParameter Name="filter" Value="COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS"/>
+    <QueryParameter Name="asof" Value="2014-12-05 17:20:57.0"/>
+    <QueryParameter Name="metadata" Value="active"/>
+    <QueryParameter Name="target" Value="EBOLA_MEASURE/CASES,DEATHS"/>
+    <Copyright><Display>(c) World Health Organization</Display></Copyright>
+    <Disclaimer><Display>The information in this database is provided as a service to our users.
+Any use of information in the web site should be accompanied by an
+acknowledgment of WHO as the source. The responsibility for the
+interpretation and use of the material lies with the user. In no event
+shall the World Health Organization be liable for any damages arising
+from the use of the information linked to this section.</Display></Disclaimer>
+<Metadata>
+<Dataset Label="EBOLA">
+<Display>Ebola</Display>
+</Dataset>
+<Attribute Label="DS" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>DS</Display>
+</Attribute>
+<Attribute Label="FIPS" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>FIPS</Display>
+</Attribute>
+<Attribute Label="IOC" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>IOC</Display>
+</Attribute>
+<Attribute Label="ISO2" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>ISO2</Display>
+</Attribute>
+<Attribute Label="ISO" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>ISO</Display>
+</Attribute>
+<Attribute Label="ITU" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>ITU</Display>
+</Attribute>
+<Attribute Label="MARC" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>MARC</Display>
+</Attribute>
+<Attribute Label="WHO" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>WHO</Display>
+</Attribute>
+<Attribute Label="WMO" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>WMO</Display>
+</Attribute>
+<Attribute Label="GEOMETRY" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>GEOMETRY</Display>
+</Attribute>
+<Attribute Label="MORT" EntityType="CORE_DIMENSION" Entity="COUNTRY">
+<Display>MORT</Display>
+</Attribute>
+<Dimension Label="COUNTRY">
+<Display>Country</Display>
+<Code Label="GIN" DisplaySequence="71">
+<Attr Category="DS">
+<Value><Display>RG</Display></Value>
+</Attr>
+<Attr Category="FIPS">
+<Value><Display>GV</Display></Value>
+</Attr>
+<Attr Category="IOC">
+<Value><Display>GUI</Display></Value>
+</Attr>
+<Attr Category="ISO2">
+<Value><Display>GN</Display></Value>
+</Attr>
+<Attr Category="ISO">
+<Value><Display>GIN</Display></Value>
+</Attr>
+<Attr Category="ITU">
+<Value><Display>GUI</Display></Value>
+</Attr>
+<Attr Category="MARC">
+<Value><Display>gv</Display></Value>
+</Attr>
+<Attr Category="WHO">
+<Value><Display>GUI</Display></Value>
+</Attr>
+<Attr Category="WMO">
+<Value><Display>GN</Display></Value>
+</Attr>
+<Attr Category="GEOMETRY">
+<Value><Display>GIN</Display></Value>
+</Attr>
+<Attr Category="MORT">
+<Value><Display>1190</Display></Value>
+</Attr>
+<Display>Guinea</Display>
+</Code>
+<Code Label="LBR" DisplaySequence="97">
+<Attr Category="DS">
+<Value><Display>LB</Display></Value>
+</Attr>
+<Attr Category="FIPS">
+<Value><Display>LI</Display></Value>
+</Attr>
+<Attr Category="IOC">
+<Value><Display>LBR</Display></Value>
+</Attr>
+<Attr Category="ISO2">
+<Value><Display>LR</Display></Value>
+</Attr>
+<Attr Category="ISO">
+<Value><Display>LBR</Display></Value>
+</Attr>
+<Attr Category="ITU">
+<Value><Display>LBR</Display></Value>
+</Attr>
+<Attr Category="MARC">
+<Value><Display>lb</Display></Value>
+</Attr>
+<Attr Category="WHO">
+<Value><Display>LIB</Display></Value>
+</Attr>
+<Attr Category="WMO">
+<Value><Display>LI</Display></Value>
+</Attr>
+<Attr Category="GEOMETRY">
+<Value><Display>LBR</Display></Value>
+</Attr>
+<Attr Category="MORT">
+<Value><Display>1240</Display></Value>
+</Attr>
+<Display>Liberia</Display>
+</Code>
+<Code Label="SLE" DisplaySequence="154">
+<Attr Category="DS">
+<Value><Display>WAL</Display></Value>
+</Attr>
+<Attr Category="FIPS">
+<Value><Display>SL</Display></Value>
+</Attr>
+<Attr Category="IOC">
+<Value><Display>SLE</Display></Value>
+</Attr>
+<Attr Category="ISO2">
+<Value><Display>SL</Display></Value>
+</Attr>
+<Attr Category="ISO">
+<Value><Display>SLE</Display></Value>
+</Attr>
+<Attr Category="ITU">
+<Value><Display>SRL</Display></Value>
+</Attr>
+<Attr Category="MARC">
+<Value><Display>sl</Display></Value>
+</Attr>
+<Attr Category="WHO">
+<Value><Display>SIL</Display></Value>
+</Attr>
+<Attr Category="WMO">
+<Value><Display>SL</Display></Value>
+</Attr>
+<Attr Category="GEOMETRY">
+<Value><Display>SLE</Display></Value>
+</Attr>
+<Attr Category="MORT">
+<Value><Display>1410</Display></Value>
+</Attr>
+<Display>Sierra Leone</Display>
+</Code>
+<Code Label="UNSPECIFIED" DisplaySequence="9999">
+<Display>All countries</Display>
+</Code>
+</Dimension>
+<Dimension Label="EBOLA_MEASURE" IsMeasure="true">
+<Display>Ebola measure</Display>
+<Code Label="CASES" DisplaySequence="10">
+<Display>Number of cases</Display>
+</Code>
+<Code Label="DEATHS" DisplaySequence="20">
+<Display>Number of deaths</Display>
+</Code>
+</Dimension>
+<Dimension Label="CASE_DEFINITION">
+<Display>Case definition</Display>
+<Code Label="CONFIRMED" DisplaySequence="0">
+<Display>Confirmed</Display>
+</Code>
+<Code Label="PROBABLE" DisplaySequence="10">
+<Display>Probable</Display>
+</Code>
+<Code Label="SUSPECTED" DisplaySequence="20">
+<Display>Suspected</Display>
+</Code>
+<Code Label="CONF_PROD_SUSP" DisplaySequence="50">
+<Display>Total</Display>
+</Code>
+</Dimension>
+<Dimension Label="INDICATOR_TYPE">
+<Display>Indicator type</Display>
+<Code Label="SITREP_CUMULATIVE" DisplaySequence="10">
+<Display>Cumulative</Display>
+</Code>
+</Dimension>
+<Dimension Label="DATAPACKAGEID">
+<Display>Data package ID</Display>
+<Code Label="2014-12-05" DisplaySequence="969">
+<Display>Data package 2014-12-05</Display>
+</Code>
+</Dimension>
+<Dimension Label="EPI_DATE">
+<Display>Data as of</Display>
+<Code Label="2014-12-02" DisplaySequence="8325">
+<Display>2 December 2014</Display>
+</Code>
+<Code Label="2014-12-03" DisplaySequence="8320">
+<Display>3 December 2014</Display>
+</Code>
+</Dimension>
+</Metadata>
+<Data><Observation FactID="445018" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Dim Category="CASE_DEFINITION" Code="CONFIRMED"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Value Numeric="2824.00000">
+<Display>2824</Display>
+</Value>
+</Observation>
+<Observation FactID="445019" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Dim Category="CASE_DEFINITION" Code="PROBABLE"/>
+<Value Numeric="1809.00000">
+<Display>1809</Display>
+</Value>
+</Observation>
+<Observation FactID="445020" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Dim Category="CASE_DEFINITION" Code="SUSPECTED"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Value Numeric="3057.00000">
+<Display>3057</Display>
+</Value>
+</Observation>
+<Observation FactID="445021" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="CASE_DEFINITION" Code="CONFIRMED"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Value Numeric="6201.00000">
+<Display>6201</Display>
+</Value>
+</Observation>
+<Observation FactID="445022" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="CASE_DEFINITION" Code="PROBABLE"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Value Numeric="79.00000">
+<Display>79</Display>
+</Value>
+</Observation>
+<Observation FactID="445023" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="CASE_DEFINITION" Code="SUSPECTED"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Value Numeric="1355.00000">
+<Display>1355</Display>
+</Value>
+</Observation>
+<Observation FactID="445024" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="COUNTRY" Code="GIN"/>
+<Dim Category="CASE_DEFINITION" Code="CONFIRMED"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Value Numeric="1956.00000">
+<Display>1956</Display>
+</Value>
+</Observation>
+<Observation FactID="445025" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="CASE_DEFINITION" Code="PROBABLE"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="COUNTRY" Code="GIN"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Value Numeric="215.00000">
+<Display>215</Display>
+</Value>
+</Observation>
+<Observation FactID="445026" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="CASE_DEFINITION" Code="SUSPECTED"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="COUNTRY" Code="GIN"/>
+<Value Numeric="21.00000">
+<Display>21</Display>
+</Value>
+</Observation>
+<Observation FactID="445027" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="CASE_DEFINITION" Code="CONFIRMED"/>
+<Value>
+<Display>Not available</Display>
+</Value>
+<Comments>
+<Display>Not available</Display>
+</Comments>
+</Observation>
+<Observation FactID="445028" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="CASE_DEFINITION" Code="PROBABLE"/>
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Value>
+<Display>Not available</Display>
+</Value>
+<Comments>
+<Display>Not available</Display>
+</Comments>
+</Observation>
+<Observation FactID="445029" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="CASE_DEFINITION" Code="SUSPECTED"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Value>
+<Display>Not available</Display>
+</Value>
+<Comments>
+<Display>Not available</Display>
+</Comments>
+</Observation>
+<Observation FactID="445030" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="CASE_DEFINITION" Code="CONFIRMED"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Value Numeric="1451.00000">
+<Display>1451</Display>
+</Value>
+</Observation>
+<Observation FactID="445031" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="CASE_DEFINITION" Code="PROBABLE"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Value Numeric="174.00000">
+<Display>174</Display>
+</Value>
+</Observation>
+<Observation FactID="445032" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="CASE_DEFINITION" Code="SUSPECTED"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Value Numeric="35.00000">
+<Display>35</Display>
+</Value>
+</Observation>
+<Observation FactID="445033" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="CASE_DEFINITION" Code="CONFIRMED"/>
+<Dim Category="COUNTRY" Code="GIN"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Value Numeric="1151.00000">
+<Display>1151</Display>
+</Value>
+</Observation>
+<Observation FactID="445034" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="COUNTRY" Code="GIN"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="CASE_DEFINITION" Code="PROBABLE"/>
+<Value Numeric="215.00000">
+<Display>215</Display>
+</Value>
+</Observation>
+<Observation FactID="445035" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="CASE_DEFINITION" Code="SUSPECTED"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="COUNTRY" Code="GIN"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Value Numeric="0.00000">
+<Display>0</Display>
+</Value>
+</Observation>
+<Observation FactID="445036" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Value Numeric="3161.00000">
+<Display>3161</Display>
+</Value>
+</Observation>
+<Observation FactID="445037" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Value Numeric="1660.00000">
+<Display>1660</Display>
+</Value>
+</Observation>
+<Observation FactID="445038" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="COUNTRY" Code="GIN"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Value Numeric="1366.00000">
+<Display>1366</Display>
+</Value>
+</Observation>
+<Observation FactID="445039" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Dim Category="EPI_DATE" Code="2014-12-02"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="COUNTRY" Code="LBR"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Value Numeric="7690.00000">
+<Display>7690</Display>
+</Value>
+</Observation>
+<Observation FactID="445040" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="COUNTRY" Code="SLE"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Value Numeric="7635.00000">
+<Display>7635</Display>
+</Value>
+</Observation>
+<Observation FactID="445041" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="COUNTRY" Code="GIN"/>
+<Dim Category="EPI_DATE" Code="2014-12-03"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Value Numeric="2192.00000">
+<Display>2192</Display>
+</Value>
+</Observation>
+<Observation FactID="445042" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="EBOLA_MEASURE" Code="CASES"/>
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Dim Category="COUNTRY" Code="UNSPECIFIED"/>
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Value Numeric="17517.00000">
+<Display>17 517</Display>
+</Value>
+<Comments>
+<Display>This total only includes Guinea, Liberia, and Sierra Leone</Display>
+</Comments>
+</Observation>
+<Observation FactID="445043" Dataset="EBOLA" EffectiveDate="2014-12-05" EndDate="2900-12-31">
+<Dim Category="DATAPACKAGEID" Code="2014-12-05"/>
+<Dim Category="COUNTRY" Code="UNSPECIFIED"/>
+<Dim Category="EBOLA_MEASURE" Code="DEATHS"/>
+<Dim Category="CASE_DEFINITION" Code="CONF_PROD_SUSP"/>
+<Dim Category="INDICATOR_TYPE" Code="SITREP_CUMULATIVE"/>
+<Value Numeric="6187.00000">
+<Display>6187</Display>
+</Value>
+<Comments>
+<Display>This total only includes Guinea, Liberia, and Sierra Leone</Display>
+</Comments>
+</Observation>
+</Data></GHO>

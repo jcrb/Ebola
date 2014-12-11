@@ -58,8 +58,94 @@ http://apps.who.int/gho/athena/xmart/data.xls?target=EBOLA_MEASURE/CASES,DEATHS&
 lecture des données depuis le site OMS
 ---------------------------------------
 
+Liste des dates:
+- "2014-12-11"
+- "2014-12-08"
+- "2014-12-05"
+- "2014-12-04"
+- "2014-12-03"
+- "2014-12-02"
+- "2014-12-01"
+- "2014-11-28"
+- "2014-11-26"
+- "2014-11-21"
+- "2014-11-19"
+- "2014-11-14"
+
+http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES,DEATHS&filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS
+
+http://apps.who.int/gho/athena/xmart/data-text.csv?target=EBOLA_MEASURE/CASES,DEATHS&profile=text&filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS
+
+http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES,DEATHS&profile=verbose&filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS
+
+
+
+Guinée
+======
+
+[Data on new cases per epi week for Guinea](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:GN001002001000000000;DATAPACKAGEID:2014-12-03)
+
+[Data on new cases by epi week and district](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:*;COUNTRY:GIN;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03)
+
+[Data on new cases per epi week for Conakry](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:GN001002001000000000;DATAPACKAGEID:2014-12-03)
+
+
+
+Libéria
+=======
+
+[Data on new cases per epi week for Liberia](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:-;COUNTRY:LBR;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03)
+
+[Data on new cases per epi week for Montserrado](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:LR001008003000000000;DATAPACKAGEID:2014-12-03)
+
+[Data on new cases by epi week and district](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:*;COUNTRY:LBR;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03)
+
+
+Sierra-Leone
+============
+
+[Data on new cases per epi week for Sierra Leone](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:-;COUNTRY:SLE;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03)
+
+[Data on new cases per epi week for Freetown](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:SL001004001000000000;DATAPACKAGEID:2014-12-03)
+
+[Data on new cases by epi week and district](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&profile=verbose&filter=LOCATION:*;COUNTRY:SLE;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03)
+
+
+Autre Pays
+==========
+
+[Other affected countries](http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/*&profile=verbose&filter=COUNTRY:USA;COUNTRY:MLI;COUNTRY:ESP;LOCATION:-;DATAPACKAGEID:2014-12-05)
+
+[Download most recent available data](http://apps.who.int/gho/athena/xmart/EBOLA_MEASURE/CASES,DEATHS.csv?profile=text&filter=COUNTRY:*;LOCATION:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;SITREP_CUMULATIVE_21_DAYS)
+
+cas
+---
+CASES  Number of cases
+DEATHS	Number of deaths
+
+CONFIRMED  Confirmed
+PROBABLE	Probable
+SUSPECTED	Suspected
+CONF_PROD_SUSP	Total
+
+SITREP_CUMULATIVE  Cumulative
+
+
+
+Codes pays
+-----------
+
+Code | DisplayValue  |	URL	 | DS	 | FIPS	 | IOC	| ISO2	| ISO	 | ITU	 | MARC	 | WHO	 | WMO	 | GEOMETRY	 | MORT   
+-----|---------------|-------|-----|-------|------|-------|------|-------|-------|-------|-------|-----------|-----   
+GIN	Guinea		RG	GV	GUI	GN	GIN	GUI	gv	GUI	GN	GIN	1190
+LBR	Liberia		LB	LI	LBR	LR	LBR	LBR	lb	LIB	LI	LBR	1240
+SLE	Sierra Leone		WAL	SL	SLE	SL	SLE	SRL	sl	SIL	SL	SLE	1410
+UNSPECIFIED	All countries												
+
+
 ```{r}
 date <- "2014-11-21"
+
 oms <- paste0("http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES,DEATHS&filter=COUNTRY:*;LOCATION:-;DATAPACKAGEID:", date, ";INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS")
 d <- read.csv(oms)
 str(d)
