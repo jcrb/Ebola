@@ -5,6 +5,10 @@ date: "23/11/2014"
 output: html_document
 ---
 
+Epidémie EBOLA 2014
+===================
+
+
 ```{r init}
 library(lubridate)
 

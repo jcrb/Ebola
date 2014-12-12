@@ -60,7 +60,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 
 <pre class="r"><code>library(lubridate)</code></pre>
-<p>Depuis le 22/11/2014 l’OMS change (encore une fois) la présentation des données Ebola: <a href="http://apps.who.int/gho/data/node.ebola-sitrep">Ebola data and statistics</a></p>
+<p>Depuis le 22/11/2014 l’OMS change (encore une fois) la présentation des données Ebola: <a href="http://apps.who.int/gho/data/node.ebola-sitrep">Ebola data and statistics</a>. Les données snt accessible au format .CSV et Excel.</p>
 <div id="guinee-gin" class="section level4">
 <h4>Guinée [GIN]:</h4>
 <p>nombre de cas par districts: <a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION">http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION</a>:*;COUNTRY:GIN;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-11-19</p>
@@ -89,14 +89,51 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="lecture-des-donnees-depuis-le-site-oms" class="section level2">
 <h2>lecture des données depuis le site OMS</h2>
+<p>Liste des dates: - “2014-12-11” - “2014-12-08” - “2014-12-05” - “2014-12-04” - “2014-12-03” - “2014-12-02” - “2014-12-01” - “2014-11-28” - “2014-11-26” - “2014-11-21” - “2014-11-19” - “2014-11-14”</p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES,DEATHS&amp;filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION">http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES,DEATHS&amp;filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION</a>:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS</p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-text.csv?target=EBOLA_MEASURE/CASES,DEATHS&amp;profile=text&amp;filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION">http://apps.who.int/gho/athena/xmart/data-text.csv?target=EBOLA_MEASURE/CASES,DEATHS&amp;profile=text&amp;filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION</a>:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS</p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES,DEATHS&amp;profile=verbose&amp;filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION">http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES,DEATHS&amp;profile=verbose&amp;filter=COUNTRY:GIN;COUNTRY:UNSPECIFIED;COUNTRY:LBR;COUNTRY:UNSPECIFIED;COUNTRY:SLE;COUNTRY:UNSPECIFIED;LOCATION</a>:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS</p>
+</div>
+<div id="guinee" class="section level1">
+<h1>Guinée</h1>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:GN001002001000000000;DATAPACKAGEID:2014-12-03">Data on new cases per epi week for Guinea</a></p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:*;COUNTRY:GIN;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03">Data on new cases by epi week and district</a></p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:GN001002001000000000;DATAPACKAGEID:2014-12-03">Data on new cases per epi week for Conakry</a></p>
+</div>
+<div id="liberia" class="section level1">
+<h1>Libéria</h1>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:-;COUNTRY:LBR;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03">Data on new cases per epi week for Liberia</a></p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:LR001008003000000000;DATAPACKAGEID:2014-12-03">Data on new cases per epi week for Montserrado</a></p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:*;COUNTRY:LBR;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03">Data on new cases by epi week and district</a></p>
+</div>
+<div id="sierra-leone" class="section level1">
+<h1>Sierra-Leone</h1>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:-;COUNTRY:SLE;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03">Data on new cases per epi week for Sierra Leone</a></p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:SL001004001000000000;DATAPACKAGEID:2014-12-03">Data on new cases per epi week for Freetown</a></p>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/CASES&amp;profile=verbose&amp;filter=LOCATION:*;COUNTRY:SLE;INDICATOR_TYPE:SITREP_NEW;DATAPACKAGEID:2014-12-03">Data on new cases by epi week and district</a></p>
+</div>
+<div id="autre-pays" class="section level1">
+<h1>Autre Pays</h1>
+<p><a href="http://apps.who.int/gho/athena/xmart/data-verbose.csv?target=EBOLA_MEASURE/*&amp;profile=verbose&amp;filter=COUNTRY:USA;COUNTRY:MLI;COUNTRY:ESP;LOCATION:-;DATAPACKAGEID:2014-12-05">Other affected countries</a></p>
+<p><a href="http://apps.who.int/gho/athena/xmart/EBOLA_MEASURE/CASES,DEATHS.csv?profile=text&amp;filter=COUNTRY:*;LOCATION:-;DATAPACKAGEID:2014-12-05;INDICATOR_TYPE:SITREP_CUMULATIVE;SITREP_CUMULATIVE_21_DAYS">Download most recent available data</a></p>
+<div id="cas" class="section level2">
+<h2>cas</h2>
+<p>CASES Number of cases DEATHS Number of deaths</p>
+<p>CONFIRMED Confirmed PROBABLE Probable SUSPECTED Suspected CONF_PROD_SUSP Total</p>
+<p>SITREP_CUMULATIVE Cumulative</p>
+</div>
+<div id="codes-pays" class="section level2">
+<h2>Codes pays</h2>
+<p>Code | DisplayValue | URL | DS | FIPS | IOC | ISO2 | ISO | ITU | MARC | WHO | WMO | GEOMETRY | MORT<br />—–|—————|——-|—–|——-|——|——-|——|——-|——-|——-|——-|———–|—–<br />GIN Guinea RG GV GUI GN GIN GUI gv GUI GN GIN 1190 LBR Liberia LB LI LBR LR LBR LBR lb LIB LI LBR 1240 SLE Sierra Leone WAL SL SLE SL SLE SRL sl SIL SL SLE 1410 UNSPECIFIED All countries</p>
 <pre class="r"><code>date &lt;- &quot;2014-11-21&quot;
+
 oms &lt;- paste0(&quot;http://apps.who.int/gho/athena/xmart/data-coded.csv?target=EBOLA_MEASURE/CASES,DEATHS&amp;filter=COUNTRY:*;LOCATION:-;DATAPACKAGEID:&quot;, date, &quot;;INDICATOR_TYPE:SITREP_CUMULATIVE;INDICATOR_TYPE:SITREP_CUMULATIVE_21_DAYS&quot;)
 d &lt;- read.csv(oms)
 str(d)</code></pre>
 <pre><code>## 'data.frame':    24 obs. of  11 variables:
 ##  $ COUNTRY        : Factor w/ 3 levels &quot;GIN&quot;,&quot;LBR&quot;,&quot;SLE&quot;: 1 1 1 1 1 1 1 1 2 2 ...
 ##  $ EBOLA_MEASURE  : Factor w/ 2 levels &quot;CASES&quot;,&quot;DEATHS&quot;: 1 1 1 1 2 2 2 2 1 1 ...
-##  $ CASE_DEFINITION: Factor w/ 4 levels &quot;CONFIRMED&quot;,&quot;CONF_PROD_SUSP&quot;,..: 1 3 4 2 1 3 4 2 1 3 ...
+##  $ CASE_DEFINITION: Factor w/ 4 levels &quot;CONF_PROB_SUSP&quot;,..: 2 3 4 1 2 3 4 1 2 3 ...
 ##  $ EPI_WEEK       : Factor w/ 2 levels &quot;2014-W47-1&quot;,&quot;2014-W47-2&quot;: 2 2 2 2 2 2 2 2 1 1 ...
 ##  $ INDICATOR_TYPE : Factor w/ 1 level &quot;SITREP_CUMULATIVE&quot;: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ DATAPACKAGEID  : Factor w/ 1 level &quot;2014-11-21&quot;: 1 1 1 1 1 1 1 1 1 1 ...
@@ -107,8 +144,8 @@ str(d)</code></pre>
 ##  $ Comments       : Factor w/ 3 levels &quot;Based on official information received by the Ministry of Health up to the end of 17 November 2014&quot;,..: 2 2 2 2 2 2 2 2 1 1 ...</code></pre>
 <pre class="r"><code>summary(d)</code></pre>
 <pre><code>##  COUNTRY EBOLA_MEASURE       CASE_DEFINITION       EPI_WEEK 
-##  GIN:8   CASES :12     CONFIRMED     :6      2014-W47-1: 8  
-##  LBR:8   DEATHS:12     CONF_PROD_SUSP:6      2014-W47-2:16  
+##  GIN:8   CASES :12     CONF_PROB_SUSP:6      2014-W47-1: 8  
+##  LBR:8   DEATHS:12     CONFIRMED     :6      2014-W47-2:16  
 ##  SLE:8                 PROBABLE      :6                     
 ##                        SUSPECTED     :6                     
 ##                                                             
@@ -147,16 +184,17 @@ str(d)</code></pre>
 <pre class="r"><code>cases &lt;- d[d$EBOLA_MEASURE == &quot;CASES&quot;,]
 total.cases &lt;- tapply(cases$Numeric, cases$CASE_DEFINITION, sum, na.rm=TRUE)
 total.cases</code></pre>
-<pre><code>##      CONFIRMED CONF_PROD_SUSP       PROBABLE      SUSPECTED 
-##           9566          15319           2045           3708</code></pre>
-<p>1.531910^{4}</p>
+<pre><code>## CONF_PROB_SUSP      CONFIRMED       PROBABLE      SUSPECTED 
+##          15319           9566           2045           3708</code></pre>
+<p>NA</p>
 <p>Nombre de décès cumulés:</p>
 <pre class="r"><code>dcd &lt;- d[d$EBOLA_MEASURE == &quot;DEATHS&quot;,]
 total.dcd &lt;- tapply(dcd$Numeric, dcd$CASE_DEFINITION, sum, na.rm=TRUE)
 total.dcd</code></pre>
-<pre><code>##      CONFIRMED CONF_PROD_SUSP       PROBABLE      SUSPECTED 
-##           2056           5444            390             35</code></pre>
-<p>5444</p>
+<pre><code>## CONF_PROB_SUSP      CONFIRMED       PROBABLE      SUSPECTED 
+##           5444           2056            390             35</code></pre>
+<p>NA</p>
+</div>
 </div>
 
 
